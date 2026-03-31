@@ -2,23 +2,282 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>SameBit - Conecta con fans en conciertos</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Estilos principales -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/match.css">
-    <link rel="stylesheet" href="/styles/dashboard.css">
-    <link rel="stylesheet" href="/styles/components.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Same Beat</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app"></div>
-    <script type="module" src="/app.js"></script>
+
+<!-- ================================================
+     LAYOUT PRINCIPAL
+     En móvil: una columna
+     En desktop: sidebar | contenido | panel derecho
+     ================================================ -->
+<div class="app-layout">
+
+    <!-- ============================================
+         SIDEBAR IZQUIERDO
+         Solo visible en desktop (CSS lo oculta en móvil)
+         ============================================ -->
+    <aside class="sidebar desktop-only">
+
+        <!-- Logo -->
+        <div class="sidebar__logo">
+            <img src="assets/logo.png" alt="Same Beat logo" class="sidebar__logo-img">
+        </div>
+
+        <!-- Navegación -->
+        <nav class="sidebar__nav" aria-label="Navegación principal">
+            <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home" aria-label="Home">
+                <i data-lucide="home"></i>
+                <span>Home</span>
+            </button>
+            <button class="sidebar__nav-btn" data-tab="concerts" aria-label="Concerts">
+                <i data-lucide="ticket"></i>
+                <span>Concerts</span>
+            </button>
+            <button class="sidebar__nav-btn" data-tab="music" aria-label="Music">
+                <i data-lucide="headphones"></i>
+                <span>Music</span>
+            </button>
+            <button class="sidebar__nav-btn" data-tab="profile" aria-label="Profile">
+                <i data-lucide="user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- Botón crear (abajo del sidebar) -->
+        <button class="sidebar__create-btn" id="sidebarCreateBtn" aria-label="Crear post">
+            <i data-lucide="plus"></i>
+            <span>create</span>
+        </button>
+
+    </aside><!-- fin .sidebar -->
+
+
+    <!-- ============================================
+         CONTENIDO CENTRAL
+         Visible en móvil y desktop
+         ============================================ -->
+    <div class="main-content">
+
+        <!-- ----------------------------------------
+             HEADER
+             ---------------------------------------- -->
+        <header class="top-bar">
+
+            <!-- Título (solo desktop) -->
+            <h1 class="top-bar__title desktop-only">Home</h1>
+
+            <!-- Buscador -->
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Buscar artistas, posts..."
+                    aria-label="Buscar"
+                >
+            </div>
+
+            <!-- Íconos del header -->
+            <div class="top-bar__icons">
+                <button class="top-bar__icon-btn" aria-label="Notificaciones">
+                    <i data-lucide="bell"></i>
+                </button>
+
+                <!-- Chats: solo visible en móvil (en desktop está el panel derecho) -->
+                <button class="top-bar__icon-btn mobile-only" aria-label="Mensajes">
+                    <i data-lucide="send"></i>
+                </button>
+
+                <button class="top-bar__icon-btn" aria-label="Ajustes">
+                    <i data-lucide="settings"></i>
+                </button>
+
+                <!-- Avatar del usuario -->
+                <div class="top-bar__avatar" aria-label="Mi perfil">
+                    <img src="assets/avatar.png" alt="Mi perfil" id="userAvatar">
+                </div>
+            </div>
+
+        </header><!-- fin .top-bar -->
+
+
+        <!-- ----------------------------------------
+             SECCIÓN MATCHES
+             Los match cards se generan desde data.js + app.js
+             Solo el botón "Make a match" es fijo en HTML
+             ---------------------------------------- -->
+        <section class="matches-section">
+            <h2 class="matches-section__title desktop-only">Match</h2>
+
+            <div class="horizontal-scroll" id="matchesContainer">
+
+                <!-- Botón fijo: añadir match -->
+                <article class="match-card add-card" id="addMatchBtn" aria-label="Hacer un match">
+                    <p class="match-text-small">Make a match</p>
+                    <div class="add-icon-container">
+                        <i data-lucide="plus"></i>
+                    </div>
+                </article>
+
+                <!-- Los demás match cards se insertan aquí por app.js -->
+
+            </div>
+        </section>
+
+
+        <!-- ----------------------------------------
+             FEED DE POSTS
+             Los posts se generan desde data.js + app.js
+             ---------------------------------------- -->
+        <main class="feed-section" id="feedSection">
+
+            <!-- Los posts se insertan aquí por app.js -->
+
+        </main>
+
+    </div><!-- fin .main-content -->
+
+
+    <!-- ============================================
+         PANEL DERECHO
+         Solo visible en desktop (CSS lo oculta en móvil)
+         ============================================ -->
+    <aside class="right-panel desktop-only">
+
+        <!-- Sección de chats -->
+        <section class="chat-list">
+            <!-- Los chats se insertan aquí por app.js -->
+            <div class="chat-item">
+                <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
+                <span class="chat-item__name">User name</span>
+            </div>
+            <div class="chat-item">
+                <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
+                <span class="chat-item__name">User name</span>
+            </div>
+            <div class="chat-item">
+                <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
+                <span class="chat-item__name">User name</span>
+            </div>
+        </section>
+
+        <!-- Now Playing -->
+        <section class="now-playing">
+            <h3 class="now-playing__title">Now Playing</h3>
+
+            <div class="now-playing__cover">
+                <img src="assets/cover.png" alt="Canción actual" id="nowPlayingCover">
+            </div>
+
+            <!-- Barra de progreso -->
+            <div class="now-playing__bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Controles del reproductor -->
+            <div class="now-playing__controls">
+                <button class="player-btn" aria-label="Anterior">
+                    <i data-lucide="skip-back"></i>
+                </button>
+                <button class="player-btn player-btn--play" id="playBtn" aria-label="Play/Pausa">
+                    <i data-lucide="play"></i>
+                </button>
+                <button class="player-btn" aria-label="Siguiente">
+                    <i data-lucide="skip-forward"></i>
+                </button>
+            </div>
+
+        </section><!-- fin .now-playing -->
+
+    </aside><!-- fin .right-panel -->
+
+</div><!-- fin .app-layout -->
+
+
+<!-- ============================================
+     BOTÓN FLOTANTE (abrir modal nuevo post)
+     Solo visible en móvil
+     ============================================ -->
+<button class="floating-add-btn mobile-only" id="fabBtn" aria-label="Crear nuevo post">
+    <i data-lucide="plus"></i>
+</button>
+
+
+<!-- ============================================
+     NAVBAR INFERIOR
+     Solo visible en móvil
+     ============================================ -->
+<nav class="bottom-nav mobile-only" aria-label="Navegación móvil">
+    <button class="nav-btn active-btn" data-tab="home" aria-label="Inicio">
+        <i data-lucide="home"></i>
+    </button>
+    <button class="nav-btn" data-tab="concerts" aria-label="Conciertos">
+        <i data-lucide="ticket"></i>
+    </button>
+
+    <!-- Espacio para el botón flotante -->
+    <div class="nav-spacer" aria-hidden="true"></div>
+
+    <button class="nav-btn" data-tab="music" aria-label="Música">
+        <i data-lucide="headphones"></i>
+    </button>
+    <button class="nav-btn" data-tab="profile" aria-label="Perfil">
+        <i data-lucide="user"></i>
+    </button>
+</nav>
+
+
+<!-- ================================================
+     MODAL: CREAR NUEVO POST
+     Se muestra/oculta desde app.js
+     ================================================ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Crear post">
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h2 class="modal-title">Nuevo post</h2>
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <textarea
+            class="modal-textarea"
+            id="postTextarea"
+            placeholder="¿Qué estás escuchando hoy?"
+            maxlength="280"
+            aria-label="Contenido del post"
+        ></textarea>
+
+        <button class="modal-submit-btn" id="modalSubmitBtn">
+            Publicar
+        </button>
+
+    </div>
+</div><!-- fin .modal-overlay -->
+
+
+<!-- ================================================
+     SCRIPTS
+     Orden importante: data.js primero, app.js después
+     ================================================ -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>lucide.createIcons();</script>
+
 </body>
 </html>
+
