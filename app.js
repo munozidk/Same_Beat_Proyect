@@ -75,25 +75,14 @@ function renderChats(chats) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderMatches(users);
-  renderAllPosts(posts);
-});
-
 function handleLike (){
     const likeBtn = document.querySelectorAll(".like-btn");
 
     likeBtn.forEach(btn => {
-        btn.addEventListener("click", (e) => {
+        btn.onclick = (e) => {
             e.stopPropagation();
-
-            const icon = btn.querySelector("i");
-
-            icon.classList.toggle("lucide-heart");
-            icon.classList.toggle("liked");
-
             btn.classList.toggle("active");
-        });
+        };
     });
 }
 
@@ -103,18 +92,15 @@ function handleSearch(posts) {
     input.addEventListener("input", (e) => {
         const value = e.target.value.toLowerCase();
 
-        const filteredPosts = posts.filter(post => {
-            post.texto.toLowerCase().includes(value)
-        });
+        const filteredPosts = posts.filter(post =>
+            post.text.toLowerCase().includes(value)
+        );
 
         renderAllPosts(filteredPosts);
 
-
         lucide.createIcons();
-
         handleLike(); // Reattach like event listeners after rendering new posts (Esto es para reactivar los eventos)
 
-        handleLike();
 
     });
 }
@@ -147,30 +133,33 @@ function handleCreatePost(){
         if (!text) return;
 
         const newPost = {
+            id: posts.length + 1,
             user: "You",
-            text: text
+            text: text,
+            image: "assets/avatar.png"
         };
 
-        POSTS.unshift(newPost);
+        posts.unshift(newPost);
 
-        renderAllPosts(POSTS);
+        renderAllPosts(posts);
+
+        lucide.createIcons();
+        handleLike();  
 
         textarea.value = "";
         closeModal();
-
-        handleLike();  
     })
 }
 
 function initApp() {
-    renderMatches(MATCHES);
-    renderAllPosts(POSTS);
+    renderMatches(users);
+    renderAllPosts(posts);
     renderChats(chats);
 
     lucide.createIcons(); //para qure funcionen los iconos
 
     handleLike();
-    handleSearch(POSTS);
+    handleSearch(posts);
     handleModal();
     handleCreatePost();
 }
