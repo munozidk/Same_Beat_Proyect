@@ -28,7 +28,7 @@
 
         <!-- Logo -->
         <div class="sidebar__logo">
-            <img src="assets/logo.png" alt="Same Beat logo" class="sidebar__logo-img">
+            <img src="assets/mockis.png" alt="Same Beat logo" class="sidebar__logo-img">
         </div>
 
         <!-- Navegación -->
@@ -108,18 +108,14 @@
 
                 <!-- Avatar del usuario -->
                 <div class="top-bar__avatar" aria-label="Mi perfil">
-                    <img src="assets/avatar.png" alt="Mi perfil" id="userAvatar">
+                    <img src="assets/avatar 1.jpg" alt="Mi perfil" id="userAvatar">
                 </div>
             </div>
 
-        </header><!-- fin .top-bar -->
+        </header>
 
 
-        <!-- ----------------------------------------
-             SECCIÓN MATCHES
-             Los match cards se generan desde data.js + app.js
-             Solo el botón "Make a match" es fijo en HTML
-             ---------------------------------------- -->
+        <!-- SECCIÓN MATCHES Los match cards se generan desde data.js + app.js -->
         <section class="matches-section">
             <h2 class="matches-section__title desktop-only">Match</h2>
 
@@ -139,24 +135,19 @@
         </section>
 
 
-        <!-- ----------------------------------------
-             FEED DE POSTS
-             Los posts se generan desde data.js + app.js
-             ---------------------------------------- -->
+        <!--FEED DE POSTS Los posts se generan desde data.js + app.js -->
         <main class="feed-section" id="feedSection">
 
             <!-- Los posts se insertan aquí por app.js -->
 
         </main>
 
-    </div><!-- fin .main-content -->
+    </div>
 
 
-    <!-- ============================================
-         PANEL DERECHO
-         Solo visible en desktop (CSS lo oculta en móvil)
-         ============================================ -->
+    <!-- PANEL DERECHO Solo visible en desktop (CSS lo oculta en móvil)-->
     <aside class="right-panel desktop-only">
+
 
         <!-- FRAME LIQUID GLASS para CHAT LIST -->
         <div class="chat-list__glass-frame">
@@ -178,12 +169,30 @@
             </section>
         </div>
 
+        <!-- Sección de chats -->
+        <section class="chat-list">
+            <!-- Los chats se insertan aquí por app.js -->
+            <div class="chat-item">
+                <img src="assets/avatar 2.jpg" alt="User" class="chat-item__avatar">
+                <span class="chat-item__name">User name</span>
+            </div>
+            <div class="chat-item">
+                <img src="assets/avatar 3.jpg" alt="User" class="chat-item__avatar">
+                <span class="chat-item__name">User name</span>
+            </div>
+            <div class="chat-item">
+                <img src="assets/avatar 4.jpg" alt="User" class="chat-item__avatar">
+                <span class="chat-item__name">User name</span>
+            </div>
+        </section>
+
+
         <!-- Now Playing -->
         <section class="now-playing">
             <h3 class="now-playing__title">Now Playing</h3>
 
             <div class="now-playing__cover">
-                <img src="assets/cover.png" alt="Canción actual" id="nowPlayingCover">
+                <img src="assets/cover.jpg" alt="Canción actual" id="nowPlayingCover">
             </div>
 
             <!-- Barra de progreso -->
@@ -208,26 +217,20 @@
                 </button>
             </div>
 
-        </section><!-- fin .now-playing -->
+        </section>
 
-    </aside><!-- fin .right-panel -->
+    </aside>
 
-</div><!-- fin .app-layout -->
+</div>
 
 
-<!-- ============================================
-     BOTÓN FLOTANTE (abrir modal nuevo post)
-     Solo visible en móvil
-     ============================================ -->
+<!-- BOTÓN FLOTANTE (abrir modal nuevo post) Solo visible en móvil -->
 <button class="floating-add-btn mobile-only" id="fabBtn" aria-label="Crear nuevo post">
     <i data-lucide="plus"></i>
 </button>
 
 
-<!-- ============================================
-     NAVBAR INFERIOR
-     Solo visible en móvil
-     ============================================ -->
+<!-- NAVBAR INFERIOR Solo visible en móvil -->
 <nav class="bottom-nav mobile-only" aria-label="Navegación móvil">
     <button class="nav-btn active-btn" data-tab="home" aria-label="Inicio">
         <i data-lucide="home"></i>
@@ -248,10 +251,7 @@
 </nav>
 
 
-<!-- ================================================
-     MODAL: CREAR NUEVO POST
-     Se muestra/oculta desde app.js
-     ================================================ -->
+<!-- MODAL: CREAR NUEVO POST Se muestra/oculta desde app.js -->
 <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Crear post">
     <div class="modal-box">
 
@@ -275,7 +275,7 @@
         </button>
 
     </div>
-</div><!-- fin .modal-overlay -->
+</div>
 
 
 <!-- ================================================
