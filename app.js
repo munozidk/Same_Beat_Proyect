@@ -54,10 +54,33 @@ function renderAllPosts(posts) {
     container.innerHTML += renderPost(post);
   });
 }
+//render para los chats 
+function renderChats(chats) {
+  const container = document.getElementById("chatList");
+
+  container.innerHTML = "";
+
+  chats.forEach(chat => {
+    const chatItem = document.createElement("div");
+    chatItem.classList.add("chat-item");
+
+    chatItem.innerHTML = `
+      <img src="${chat.imagen}" alt="${chat.nombre}" class="chat-item__avatar">
+      <span class="chat-item__name">${chat.nombre}</span>
+    `;
+
+    container.appendChild(chatItem);
+  });
+}
+
+
+
+
 // init conectandolo con el data
 document.addEventListener("DOMContentLoaded", () => {
   renderMatches(usuarios);
   renderAllPosts(posts);
+  
 });
 
 //like function 
