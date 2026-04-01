@@ -1,46 +1,44 @@
+// USERS (MATCH)
 
-// USUARIOS (MATCH)
-
-const usuarios = [
+const users = [
   {
     id: 1,
-    username: "Loli_Bahia",
-    edad: 20,
-    imagen: "assets/loliBahia.jpg",
-    compatibilidad: "Tienen un 85% de compatibilidad"
+    username: "Loli Bahia",
+    age: 20,
+    image: "assets/loliBahia.jpg",
+    compatibility: "They have an 85% compatibility"
   },
   {
     id: 2,
     username: "Yoongi",
-    edad: 27,
-    imagen: "assets/yoongi.jpg",
-    compatibilidad: "Tienen un 60% de compatibilidad"
+    age: 27,
+    image: "assets/yoongi.jpg",
+    compatibility: "They have a 60% compatibility"
   },
   {
     id: 3,
-    username: "hyunjin_st",
-    edad: 20,
-    imagen: "assets/hyujin.jpg",
-    compatibilidad: "Tienen un 62% de compatibilidad"
+    username: "Hyunjin",
+    age: 20,
+    image: "assets/hyujin.jpg",
+    compatibility: "They have a 62% compatibility"
   },
   {
     id: 4,
-    username: "Harry_tomilson",
-    edad: 19,
-    imagen: "assets/harry.jpg",
-    compatibilidad: "Tienen un 58% de compatibilidad"
+    username: "Harry Tomilson",
+    age: 19,
+    image: "assets/harry.jpg",
+    compatibility: "They have a 58% compatibility"
   }
 ];
 
 
-//  NOW PLAYING
+// NOW PLAYING
 
 const nowPlaying = {
-  nombre: "Fiebre",
-  artista: "Bad Gyal",
-  imagen: "assets/fiebre.jpg"
+  name: "Fiebre",
+  artist: "Bad Gyal",
+  image: "assets/fiebre.jpg"
 };
-
 
 
 // POSTS
@@ -48,35 +46,35 @@ const nowPlaying = {
 const posts = [
   {
     id: 1,
-    usuario: "AlexDrift",
-    imagen: "assets/AronPiper.jpg",
-    texto: "I love going with Alvaro Diaz’s community in Colombia. Everyone has a wonderful vibe."
+    user: "Aron Piper",
+    image: "assets/AronPiper.jpg",
+    text: "I love going with Alvaro Diaz’s community in Colombia. Everyone has a wonderful vibe."
   },
   {
     id: 2,
-    usuario: "Tati_87",
-    imagen: "assets/jennie.jpg",
-    texto: "Haha, it was the best night of my life #1DFOREVER"
+    user: "Jennie Kim",
+    image: "assets/jennie.jpg",
+    text: "Haha, it was the best night of my life #1DFOREVER"
   }
 ];
 
 
-//  CHATS
+// CHATS
 
 const chats = [
   {
     id: 1,
-    nombre: "User name",
-    imagen: "assets/loliBahia.jpg"
+    name: "User name",
+    image: "assets/loliBahia.jpg"
   },
   {
     id: 2,
-    nombre: "User name",
-    imagen: "assets/yoongi.jpg"
+    name: "User name",
+    image: "assets/yoongi.jpg"
   },
   {
     id: 3,
-    nombre: "User name",
-    imagen: "assets/hyujin.jpg"
+    name: "User name",
+    image: "assets/hyujin.jpg"
   }
 ];
