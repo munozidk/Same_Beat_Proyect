@@ -23,7 +23,6 @@ function renderMatches(usuarios) {
   });
 }
 
-
 //render posts
 function renderPost(post) {
   return `
