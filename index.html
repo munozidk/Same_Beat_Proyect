@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -49,13 +49,18 @@
                 <i data-lucide="user"></i>
                 <span>Profile</span>
             </button>
-        </nav>
-
-        <!-- Botón crear (abajo del sidebar) -->
+            <button class="sidebar__nav-btn" data-tab="create" aria-label="Create">
+                <i data-lucide="plus"></i>
+                <span>Profile</span>
+            </button>
+             <!-- Botón crear (abajo del sidebar) -->
         <button class="sidebar__create-btn" id="sidebarCreateBtn" aria-label="Crear post">
             <i data-lucide="plus"></i>
-            <span>create</span>
+            <span>Create</span>
         </button>
+        </nav>
+
+       
 
     </aside><!-- fin .sidebar -->
 
@@ -153,22 +158,25 @@
          ============================================ -->
     <aside class="right-panel desktop-only">
 
-        <!-- Sección de chats -->
-        <section class="chat-list">
-            <!-- Los chats se insertan aquí por app.js -->
-            <div class="chat-item">
-                <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
-                <span class="chat-item__name">User name</span>
-            </div>
-            <div class="chat-item">
-                <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
-                <span class="chat-item__name">User name</span>
-            </div>
-            <div class="chat-item">
-                <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
-                <span class="chat-item__name">User name</span>
-            </div>
-        </section>
+        <!-- FRAME LIQUID GLASS para CHAT LIST -->
+        <div class="chat-list__glass-frame">
+            <!-- Sección de chats -->
+            <section class="chat-list">
+                <!-- Los chats se insertan aquí por app.js -->
+                <div class="chat-item">
+                    <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
+                    <span class="chat-item__name">User name</span>
+                </div>
+                <div class="chat-item">
+                    <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
+                    <span class="chat-item__name">User name</span>
+                </div>
+                <div class="chat-item">
+                    <img src="assets/avatar.png" alt="User" class="chat-item__avatar">
+                    <span class="chat-item__name">User name</span>
+                </div>
+            </section>
+        </div>
 
         <!-- Now Playing -->
         <section class="now-playing">
