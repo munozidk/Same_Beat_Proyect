@@ -40,6 +40,12 @@ function renderPost(post) {
         <p>${post.texto}</p>
       </div>
 
+      <div class="post-actions">
+        <button class="like-btn">
+          <i data-lucide="heart"></i>
+        </button>
+      </div>
+
     </article>
   `;
 }
@@ -88,10 +94,12 @@ function handleSearch(posts) {
         const value = e.target.value.toLowerCase();
 
         const filteredPosts = posts.filter(post => {
-            post.text.toLowerCase().includes(value)
+            post.texto.toLowerCase().includes(value)
         });
 
         renderAllPosts(filteredPosts);
+
+        lucide.createIcons();
 
         handleLike(); // Reattach like event listeners after rendering new posts (Esto es para reactivar los eventos)
     });
@@ -149,6 +157,8 @@ function handleCreatePost(){
 function initApp() {
     renderMatches(MATCHES);
     renderAllPosts(POSTS);
+
+    lucide.createIcons(); //para qure funcionen los iconos
 
     handleLike();
     handleSearch(POSTS);
