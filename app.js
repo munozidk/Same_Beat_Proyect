@@ -1,16 +1,5 @@
-// DATA TEMPORAL
-const MATCHES_FAKE = [
-  { id: 1, name: "Vane_Diaz", match: 78, image: "https://via.placeholder.com/100" },
-  { id: 2, name: "Tati_87", match: 54, image: "https://via.placeholder.com/100" }
-];
-
-const POSTS_FAKE = [
-  { id: 1, user: "AlexDrift", content: "I love concerts 🔥", liked: false, avatar: "https://via.placeholder.com/50" },
-  { id: 2, user: "Tati_87", content: "Best night ever 😭", liked: false, avatar: "https://via.placeholder.com/50" }
-];
-
-// RENDER MATCHES
-function renderMatches(matches) {
+//render matches
+function renderMatches(usuarios) {
   const container = document.getElementById("matchesContainer");
 
   const staticCard = container.querySelector(".add-card");
@@ -18,31 +7,45 @@ function renderMatches(matches) {
   container.innerHTML = "";
   container.appendChild(staticCard);
 
-  matches.forEach(user => {
+  usuarios.forEach(user => {
     const card = document.createElement("article");
     card.classList.add("match-card", "user-card");
 
     card.innerHTML = `
-      <img src="${user.image}" class="match-pic">
-      <h3>${user.name}</h3>
-      <p>${user.match}%</p>
+      <img src="${user.imagen}" alt="${user.username}" class="match-pic">
+      <div class="match-info">
+        <h3>${user.username}</h3>
+        <p>${user.compatibilidad}</p>
+      </div>
     `;
 
     container.appendChild(card);
   });
 }
 
-// RENDER POST
+
+//render posts
 function renderPost(post) {
   return `
-    <article class="post-card">
-      <h3>${post.user}</h3>
-      <p>${post.content}</p>
+    <article class="feed-post">
+
+      <div class="post-header">
+        <div class="author-info">
+          <img src="${post.imagen}" alt="${post.usuario}" class="comment-profile-pic">
+          <span class="author-name">${post.usuario}</span>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p>${post.texto}</p>
+      </div>
+
     </article>
   `;
 }
 
-// RENDER TODOS LOS POSTS
+
+//render para todos los posts
 function renderAllPosts(posts) {
   const container = document.getElementById("feedSection");
 
@@ -52,9 +55,8 @@ function renderAllPosts(posts) {
     container.innerHTML += renderPost(post);
   });
 }
-
-// INIT
+// init conectandolo con el data
 document.addEventListener("DOMContentLoaded", () => {
-  renderMatches(MATCHES_FAKE);
-  renderAllPosts(POSTS_FAKE);
+  renderMatches(usuarios);
+  renderAllPosts(posts);
 });
