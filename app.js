@@ -1,6 +1,4 @@
-
-//render matches
-function renderMatches(usuarios) {
+function renderMatches(users) {
   const container = document.getElementById("matchesContainer");
 
   const staticCard = container.querySelector(".add-card");
@@ -8,15 +6,15 @@ function renderMatches(usuarios) {
   container.innerHTML = "";
   container.appendChild(staticCard);
 
-  usuarios.forEach(user => {
+  users.forEach(user => {
     const card = document.createElement("article");
     card.classList.add("match-card", "user-card");
 
     card.innerHTML = `
-      <img src="${user.imagen}" alt="${user.username}" class="match-pic">
+      <img src="${user.image}" alt="${user.username}" class="match-pic">
       <div class="match-info">
         <h3>${user.username}</h3>
-        <p>${user.compatibilidad}</p>
+        <p>${user.compatibility}</p>
       </div>
     `;
 
@@ -24,20 +22,19 @@ function renderMatches(usuarios) {
   });
 }
 
-//render posts
 function renderPost(post) {
   return `
     <article class="feed-post">
 
       <div class="post-header">
         <div class="author-info">
-          <img src="${post.imagen}" alt="${post.usuario}" class="comment-profile-pic">
-          <span class="author-name">${post.usuario}</span>
+          <img src="${post.image}" alt="${post.user}" class="comment-profile-pic">
+          <span class="author-name">${post.user}</span>
         </div>
       </div>
 
       <div class="post-content">
-        <p>${post.texto}</p>
+        <p>${post.text}</p>
       </div>
 
       <div class="post-actions">
@@ -50,7 +47,6 @@ function renderPost(post) {
   `;
 }
 
-//render para todos los posts
 function renderAllPosts(posts) {
   const container = document.getElementById("feedSection");
 
@@ -60,13 +56,29 @@ function renderAllPosts(posts) {
     container.innerHTML += renderPost(post);
   });
 }
-// init conectandolo con el data
+
+function renderChats(chats) {
+  const container = document.getElementById("chatList");
+
+  container.innerHTML = "";
+
+  chats.forEach(chat => {
+    const chatItem = document.createElement("div");
+    chatItem.classList.add("chat-item");
+
+    chatItem.innerHTML = `
+      <img src="${chat.image}" alt="${chat.name}" class="chat-item__avatar">
+      <span class="chat-item__name">${chat.name}</span>
+    `;
+
+    container.appendChild(chatItem);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  renderMatches(usuarios);
+  renderMatches(users);
   renderAllPosts(posts);
 });
-
-//like function 
 
 function handleLike (){
     const likeBtn = document.querySelectorAll(".like-btn");
@@ -85,8 +97,6 @@ function handleLike (){
     });
 }
 
-//Search function
-
 function handleSearch(posts) {
     const input = document.getElementById("searchInput");
 
@@ -99,13 +109,15 @@ function handleSearch(posts) {
 
         renderAllPosts(filteredPosts);
 
+
         lucide.createIcons();
 
         handleLike(); // Reattach like event listeners after rendering new posts (Esto es para reactivar los eventos)
+
+        handleLike();
+
     });
 }
-
-//Modal function
 
 function openModal(){
     document.getElementById("modalOverlay").style.display = "flex";
@@ -124,8 +136,6 @@ function handleModal(){
     if (sidebarBtn) sidebarBtn.addEventListener("click", openModal);
     if (closeBtn) closeBtn.addEventListener("click", closeModal);
 }
-
-// Create posts function
 
 function handleCreatePost(){
     const submitBtn = document.getElementById("modalSubmitBtn");
@@ -152,11 +162,10 @@ function handleCreatePost(){
     })
 }
 
-//INIT Final
-
 function initApp() {
     renderMatches(MATCHES);
     renderAllPosts(POSTS);
+    renderChats(chats);
 
     lucide.createIcons(); //para qure funcionen los iconos
 
@@ -167,4 +176,3 @@ function initApp() {
 }
 
 initApp();
-
