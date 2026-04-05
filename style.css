@@ -703,6 +703,51 @@ html, body {
     width: 16px;
     height: 16px;
 }
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comment-profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--lime-green);
+}
+
+.author-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.post-content p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--white);
+    padding: 8px 0;
+}
+
+.like-btn, .comment-btn, .share-btn {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    transition: var(--transition);
+}
+
+.like-btn:hover, .comment-btn:hover, .share-btn:hover {
+    color: var(--lime-green);
+    transform: scale(1.15);
+}
 
 /*RIGHT PANEL (Desktop solo)*/
 

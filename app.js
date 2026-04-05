@@ -27,20 +27,25 @@ function renderPost(post) {
     <article class="post-card">
 
       <div class="post-header">
+        <div class="post-actions">
+          <button class="like-btn">
+            <i data-lucide="heart"></i>
+          </button>
+          <button class="comment-btn">
+            <i data-lucide="message-circle"></i>
+          </button>
+          <button class="share-btn">
+            <i data-lucide="repeat-2"></i>
+          </button>
+        </div>
         <div class="author-info">
-          <img src="${post.image}" alt="${post.user}" class="comment-profile-pic">
           <span class="author-name">${post.user}</span>
+          <img src="${post.image}" alt="${post.user}" class="comment-profile-pic">
         </div>
       </div>
 
       <div class="post-content">
         <p>${post.text}</p>
-      </div>
-
-      <div class="post-actions">
-        <button class="like-btn">
-          <i data-lucide="heart"></i>
-        </button>
       </div>
 
     </article>
