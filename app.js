@@ -24,7 +24,7 @@ function renderMatches(users) {
 
 function renderPost(post) {
   return `
-    <article class="feed-post">
+    <article class="post-card">
 
       <div class="post-header">
         <div class="author-info">
