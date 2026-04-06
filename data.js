@@ -48,13 +48,15 @@ const posts = [
     id: 1,
     user: "Aron Piper",
     image: "assets/AronPiper.jpg",
-    text: "I love going with Alvaro Diaz’s community in Colombia. Everyone has a wonderful vibe."
+    text: "I love going with Alvaro Diaz’s community in Colombia. Everyone has a wonderful vibe.",
+    likes: 28
   },
   {
     id: 2,
     user: "Jennie Kim",
     image: "assets/jennie.jpg",
-    text: "Haha, it was the best night of my life #1DFOREVER"
+    text: "Haha, it was the best night of my life #1DFOREVER",
+    likes: 103
   }
 ];
 

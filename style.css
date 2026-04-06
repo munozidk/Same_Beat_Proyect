@@ -1287,3 +1287,28 @@ button, a {
     -webkit-user-select: none;
     user-select: none;
 }
+
+/* para el contador de likes */
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--white);
+}
+
+.like-btn.active {
+  color: #FF4D6D;
+}
+
+.like-btn.active i {
+  fill: #FF4D6D;
+  stroke: #FF4D6D;
+}
+
+.like-count {
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 16px;
+}

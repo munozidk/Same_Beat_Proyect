@@ -28,8 +28,9 @@ function renderPost(post) {
 
       <div class="post-header">
         <div class="post-actions">
-          <button class="like-btn">
+          <button class="like-btn" data-id="${post.id}" data-likes="${post.likes || 0}">
             <i data-lucide="heart"></i>
+            <span class="like-count">${post.likes || 0}</span>
           </button>
           <button class="comment-btn">
             <i data-lucide="message-circle"></i>
@@ -81,14 +82,28 @@ function renderChats(chats) {
 }
 
 function handleLike (){
-    const likeBtn = document.querySelectorAll(".like-btn");
+  
+    const likeBtns = document.querySelectorAll(".like-btn");
 
-    likeBtn.forEach(btn => {
-        btn.onclick = (e) => {
-            e.stopPropagation();
-            btn.classList.toggle("active");
-        };
-    });
+    likeBtns.forEach(btn => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
+
+      const postId = parseInt(btn.dataset.id);
+      const post = posts.find(p => p.id === postId);
+      const isLiked = btn.classList.contains("active");
+
+      if (isLiked) {
+        post.likes = (post.likes || 1) - 1;
+        btn.classList.remove("active");
+      } else {
+        post.likes = (post.likes || 0) + 1;
+        btn.classList.add("active");
+      }
+
+      btn.querySelector(".like-count").textContent = post.likes;
+    };
+  });
 }
 
 function handleSearch(posts) {
