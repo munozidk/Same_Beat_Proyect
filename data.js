@@ -64,17 +64,17 @@ const posts = [
 const chats = [
   {
     id: 1,
-    name: "User name",
+    name: "lindi_12",
     image: "assets/loliBahia.jpg"
   },
   {
     id: 2,
-    name: "User name",
+    name: "sr_min",
     image: "assets/yoongi.jpg"
   },
   {
     id: 3,
-    name: "User name",
+    name: "hyunjin_20",
     image: "assets/hyujin.jpg"
   }
 ];
