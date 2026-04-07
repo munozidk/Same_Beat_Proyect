@@ -112,7 +112,7 @@ html, body {
     top: 90px;
     left: 12px;
     right: 12px;
-    height: 300px; 
+    height: 72px; 
     background: rgba(126, 59, 237, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -385,6 +385,33 @@ html, body {
 
 /* MATCHES SECTION */
 
+.match-info-glass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 14px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    background: linear-gradient(
+        135deg,
+        rgba(126, 59, 237, 0.45),
+        rgba(70, 35, 137, 0.35)
+    );
+
+   
+
+    border-top: 1px solid rgba(198, 255, 52, 0.2);
+    border-radius: 0 40px 24px 24px;
+
+    box-shadow: 
+        inset 0 1px 1px rgba(255,255,255,0.15),
+        0 -10px 30px rgba(126, 59, 237, 0.4);
+         z-index: 2;
+}
 .matches-section {
     display: flex;
     flex-direction: column;
@@ -393,6 +420,7 @@ html, body {
     border-bottom: 1px solid rgba(198, 255, 52, 0.1);
     background: rgba(10, 2, 23, 0.5);
 }
+
 
 @media (min-width: 1024px) {
     .matches-section {
@@ -433,22 +461,18 @@ html, body {
 
 /* Match cards */
 .match-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-width: 140px;
-    height: 140px;
-    background: linear-gradient(135deg, rgba(126, 59, 237, 0.2) 0%, rgba(103, 53, 188, 0.1) 100%);
-    border: 2px solid rgba(198, 255, 52, 0.2);
-    border-radius: 12px;
-    padding: 12px;
-    cursor: pointer;
-    transition: var(--transition);
-    flex-shrink: 0;
     position: relative;
+    min-width: 220px;
+    height: 300px;
+    border-radius: 24px;
     overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: all 0.35s ease;
 }
 
 @media (min-width: 1024px) {
@@ -474,17 +498,28 @@ html, body {
 }
 
 .match-card img {
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
 }
-
-.match-text-small {
-    font-size: 12px;
-    font-weight: 600;
-    text-align: center;
-    color: var(--white);
+.match-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.8) 10%,
+        rgba(0,0,0,0.2) 50%,
+        transparent 80%
+    );
+}
+.match-info {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 2;
+    justify-content: center;
 }
 
 /* Card agregar match */
@@ -789,10 +824,10 @@ html, body {
 /* CHAT LIST */
 
 .chat-list__glass-frame {
-   display: flex;
+    display: flex;
+    
     flex-direction: column;
     justify-content: center;
-    height: 311px;
     padding: 18px 18px 18px 18px;
     width: 100%;
     border-radius: 50px 50px 0px 50px;
@@ -804,12 +839,15 @@ html, body {
         0 8px 32px rgba(0, 0, 0, 0.3),
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
     gap: 12px;
+    height: 30%;
 }
 
 .chat-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    justify-content: center;
+
 }
 
 .chat-item {
@@ -827,6 +865,7 @@ html, body {
         -0.36px -0.27px 14.39px rgba(255, 255, 255, 0.12) inset,
         0px 6.64px 6.64px rgba(18, 9, 35, 0.70) inset;
     width: 100%;
+    height: 25%;
 }
 
 .chat-item:hover {
@@ -1296,10 +1335,11 @@ button, a {
   gap: 4px;
   font-size: 13px;
   color: var(--white);
+  width: 50%;
 }
 
 .like-btn.active {
-  color: #FF4D6D;
+  color: var(--lime-green);
 }
 
 .like-btn.active i {

@@ -78,7 +78,7 @@
         <header class="top-bar">
 
             <!-- Título (solo desktop) -->
-            <h1 class="top-bar__title desktop-only">Home</h1>
+            <h1><class="top-bar__title desktop-only">Home</h1>
 
             <!-- Buscador -->
             <div class="search-container">
@@ -115,10 +115,10 @@
 
         </header>
 
-
+       
         <!-- SECCIÓN MATCHES Los match cards se generan desde data.js + app.js -->
         <section class="matches-section">
-            <h2 class="matches-section__title desktop-only">Match</h2>
+            <h2><class="matches-section__title desktop-only">Suggestions</h2>
 
             <div class="horizontal-scroll" id="matchesContainer">
 
@@ -128,11 +128,13 @@
                     <div class="add-icon-container">
                         <i data-lucide="plus"></i>
                     </div>
+                    <div class="match-info-glass">
+        <p class="match-name">Vane_Diaz <span>20 years</span></p>
+        <p class="match-compatibility">76% match</p>
+        </div>
                 </article>
 
                 <!-- Los demás match cards se insertan aquí por app.js -->
-
-            </div>
         </section>
 
 
