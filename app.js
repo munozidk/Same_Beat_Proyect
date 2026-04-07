@@ -12,7 +12,7 @@ function renderMatches(users) {
 
     card.innerHTML = `
       <img src="${user.image}" alt="${user.username}" class="match-pic">
-      <div class="match-info">
+      <div class="match-info match-info-glass">
         <h3>${user.username}</h3>
         <p>${user.compatibility}</p>
       </div>
@@ -21,6 +21,8 @@ function renderMatches(users) {
     container.appendChild(card);
   });
 }
+
+
 
 function renderPost(post) {
   return `
