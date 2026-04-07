@@ -82,7 +82,7 @@ function renderChats(chats) {
 }
 
 function handleLike (){
-  
+
     const likeBtns = document.querySelectorAll(".like-btn");
 
     likeBtns.forEach(btn => {
@@ -176,7 +176,7 @@ function initApp() {
     renderAllPosts(posts);
     renderChats(chats);
 
-    lucide.createIcons(); //para qure funcionen los iconos
+    lucide.createIcons(); //para que funcionen los iconos
 
     handleLike();
     handleSearch(posts);
