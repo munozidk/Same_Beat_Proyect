@@ -524,9 +524,6 @@ html, body {
     width: 100%;
     height: 95px; /* altura del degradado */
     background: linear-gradient(to top, rgba(18, 1, 45, 0.689), transparent);
-    to top,
-        rgba(18, 1, 45, 0.4),
-        transparent
     z-index: 1;
 }
 .match-card .match-info {
