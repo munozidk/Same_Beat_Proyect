@@ -37,8 +37,9 @@ function renderPost(post) {
           <button class="comment-btn">
             <i data-lucide="message-circle"></i>
           </button>
-          <button class="share-btn">
+          <button class="share-btn" data-id="${post.id}">
             <i data-lucide="repeat-2"></i>
+            <span class="share-count">${post.reposts || 0}</span>
           </button>
         </div>
         <div class="author-info">
@@ -84,7 +85,7 @@ function renderChats(chats) {
 }
 
 function handleLike (){
-  
+
     const likeBtns = document.querySelectorAll(".like-btn");
 
     likeBtns.forEach(btn => {
@@ -121,10 +122,35 @@ function handleSearch(posts) {
         renderAllPosts(filteredPosts);
 
         lucide.createIcons();
+        handleRepost();
         handleLike(); // Reattach like event listeners after rendering new posts (Esto es para reactivar los eventos)
 
 
     });
+}
+
+function handleRepost(){
+  const shareBtns = document.querySelectorAll(".share-btn");
+
+  shareBtns.forEach(btn => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
+
+      const postId = parseInt(btn.dataset.id);
+      const post = posts.find(p => p.id === postId);
+      const isReposted = btn.classList.contains("active");
+
+      if (isReposted) {
+        post.reposts = (post.reposts || 1) -1;
+        btn.classList.remove("active");
+      } else {
+        post.reposts = (post.reposts || 0) + 1;
+        btn.classList.add("active");
+      }
+
+      btn.querySelector(".share-count").textContent = post.reposts;
+    };
+  });
 }
 
 function openModal(){
@@ -166,6 +192,7 @@ function handleCreatePost(){
         renderAllPosts(posts);
 
         lucide.createIcons();
+        handleRepost();
         handleLike();  
 
         textarea.value = "";
@@ -178,9 +205,10 @@ function initApp() {
     renderAllPosts(posts);
     renderChats(chats);
 
-    lucide.createIcons(); //para qure funcionen los iconos
+    lucide.createIcons(); //para que funcionen los iconos
 
     handleLike();
+    handleRepost();
     handleSearch(posts);
     handleModal();
     handleCreatePost();
