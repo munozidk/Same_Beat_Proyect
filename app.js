@@ -39,6 +39,7 @@ function renderPost(post) {
           </button>
           <button class="share-btn">
             <i data-lucide="repeat-2"></i>
+            <span class="share-count">${post.repost || 0}</span>
           </button>
         </div>
         <div class="author-info">
@@ -121,10 +122,35 @@ function handleSearch(posts) {
         renderAllPosts(filteredPosts);
 
         lucide.createIcons();
+        handleRepost();
         handleLike(); // Reattach like event listeners after rendering new posts (Esto es para reactivar los eventos)
 
 
     });
+}
+
+function handleRepost(){
+  const shareBtns = document.querySelectorAll(".share-btn");
+
+  shareBtns.forEach(btn => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
+
+      const postId = parseInt(btn.dataset.id);
+      const post = post.find(p => p.id === postId);
+      const isReposted = btn.classList.contains("active");
+
+      if (isReposted) {
+        post.repost = (post.repost || 1) -1;
+        btn.classList.remove("active");
+      } else {
+        post.repost = (post.repost || 0) + 1;
+        btn.classList.add("active");
+      }
+
+      btn.querySelector(".share-count").textContent = post.repost;
+    };
+  });
 }
 
 function openModal(){
@@ -166,6 +192,7 @@ function handleCreatePost(){
         renderAllPosts(posts);
 
         lucide.createIcons();
+        handleRepost();
         handleLike();  
 
         textarea.value = "";
@@ -181,6 +208,7 @@ function initApp() {
     lucide.createIcons(); //para que funcionen los iconos
 
     handleLike();
+    handleRepost();
     handleSearch(posts);
     handleModal();
     handleCreatePost();
