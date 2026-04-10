@@ -1508,6 +1508,7 @@ button, a {
     height: 22px;
     transition: var(--transition);
 }
+    */
 
 .share-btn.active i {
   stroke: var(--lime-green);
