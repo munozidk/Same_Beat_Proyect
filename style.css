@@ -1500,6 +1500,7 @@ button, a {
     cursor: pointer;
     color: var(--white);
     transition: var(--transition);
+    width: 50%;
 }
 
 .share-btn i{
