@@ -35,8 +35,7 @@ html, body {
     color: var(--white);
     overflow: hidden;
     background:
-
-  radial-gradient(50% 20% at 50% 3%, 
+    radial-gradient(50% 20% at 50% 3%, 
     rgba(255,255,255,0.75) 0%, 
     rgba(200,150,255,0.55) 18%, 
     rgba(120, 0, 255, 0.35) 40%, 
@@ -50,28 +49,8 @@ html, body {
     transparent 80%
   ),
 
-  radial-gradient(85% 45% at 50% 38%, 
-    rgba(25, 0, 50, 0.7) 0%, 
-    rgba(40, 0, 80, 0.5) 30%, 
-    transparent 75%
-  ),
-
-  radial-gradient(circle at 40% 70%, 
-    rgba(120, 0, 255, 0.6) 0%, 
-    transparent 60%
-  ),
-
-  radial-gradient(circle at 50% 110%, 
-    rgba(90, 0, 200, 0.9) 0%, 
-    transparent 70%
-  ),
-
-  radial-gradient(circle at 90% 85%, 
-    rgba(180, 255, 80, 0.9) 0%, 
-    rgba(180, 255, 80, 0.4) 25%, 
-    transparent 60%
-  ),
-
+  
+  
   linear-gradient(180deg, #05050f 0%, #120a2a 40%, #2a0066 100%);
 }
 
@@ -82,6 +61,7 @@ html, body {
     height: 100vh;
     width: 100%;
     gap: 0;
+
 }
 
 /* UTILIDADES RESPONSIVE */
@@ -350,6 +330,35 @@ html, body {
     gap: 16px;
     border-radius: 0;
     min-height: 60px;
+    position: relative;
+}
+
+.top-bar::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    height: 44px;
+    background: rgba(255, 254, 254, 0.184);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(198, 255, 52, 0.12);
+    border-radius: 75px 75px 75px 75px; 
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.278);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.top-bar__title {
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: fit-content;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 1024px) {
@@ -360,12 +369,11 @@ html, body {
     }
 }
 
-.top-bar__title {
-    font-size: 24px;
-    font-weight: 700;
-    white-space: nowrap;
-    min-width: fit-content;
-}
+.top-bar::before {
+        height: 54px;
+    }
+
+
 
 @media (max-width: 1023px) {
     .top-bar__title {
@@ -485,7 +493,7 @@ html, body {
     position: absolute;
     display: flex;
     bottom: 0;
-    left: 20;
+    left: 0;
     right: 0;
 
     padding: 14px;
@@ -523,6 +531,8 @@ html, body {
     padding: 16px;
     border-bottom: 1px solid rgba(198, 255, 52, 0.1);
     background: rgba(10, 2, 23, 0.5);
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -677,6 +687,8 @@ html, body {
     gap: 12px;
     padding: 12px 16px;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 1024px) {
@@ -906,18 +918,31 @@ html, body {
 
 .right-panel {
     width: 300px;
-    background: linear-gradient(180deg, rgba(10, 2, 23, 0.9) 0%, rgba(30, 10, 50, 0.7) 100%);
-    display: flex;
+    background:   radial-gradient(circle at 90% 85%, 
+    rgba(180, 255, 80, 0.9) 0%, 
+    rgba(180, 255, 80, 0.4) 25%, 
+    transparent 60%
+  ),
+   radial-gradient(circle at 40% 70%, 
+    rgba(120, 0, 255, 0.6) 0%, 
+    transparent 60%
+  ),
+
+  radial-gradient(circle at 50% 110%, 
+    rgba(90, 0, 200, 0.9) 0%, 
+    transparent 70%
+  );
+   
+
     flex-direction: column;
     gap: 20px;
     padding: 20px 16px;
-    border-left: 1px solid rgba(198, 255, 52, 0.1);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 1024px) {
-    .right-panel {
+.right-panel {
         width: 320px;
         padding: 24px 20px;
         gap: 24px;
@@ -928,9 +953,6 @@ html, body {
     width: 4px;
 }
 
-.right-panel::-webkit-scrollbar-track {
-    background: transparent;
-}
 
 .right-panel::-webkit-scrollbar-thumb {
     background: rgba(198, 255, 52, 0.3);
@@ -940,12 +962,11 @@ html, body {
 /* CHAT LIST */
 
 .chat-list__glass-frame {
-    display: flex;
-    
+
     flex-direction: column;
     justify-content: center;
-    padding: 18px 18px 18px 18px;
-    width: 100%;
+    width: auto;
+    height: auto;
     border-radius: 50px 50px 0px 50px;
     border: 2px solid rgba(255, 255, 255, 0.30);
     background: rgba(255, 255, 255, 0.20);
@@ -955,13 +976,13 @@ html, body {
         0 8px 32px rgba(0, 0, 0, 0.3),
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
     gap: 12px;
-    height: 30%;
+    
 }
 
 .chat-list {
     display: flex;
+    padding: 10px;
     flex-direction: column;
-    gap: 12px;
     justify-content: center;
 
 }
@@ -970,7 +991,8 @@ html, body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 14px 20px;
+    margin-top: 15px;
+    padding: 9px 12px;
     background: rgba(133, 133, 133, 0.70);
     border-radius: 66px;
     cursor: pointer;
@@ -980,8 +1002,7 @@ html, body {
         -0.23px -0.17px 7.19px rgba(255, 255, 255, 0.12) inset,
         -0.36px -0.27px 14.39px rgba(255, 255, 255, 0.12) inset,
         0px 6.64px 6.64px rgba(18, 9, 35, 0.70) inset;
-    width: 100%;
-    height: 25%;
+    height: auto;
 }
 
 .chat-item:hover {
@@ -1478,6 +1499,7 @@ button, a {
     cursor: pointer;
     color: var(--white);
     transition: var(--transition);
+    width: 50%;
 }
 
 .share-btn i{
@@ -1485,6 +1507,7 @@ button, a {
     height: 22px;
     transition: var(--transition);
 }
+    */
 
 .share-btn.active i {
   stroke: var(--lime-green);
