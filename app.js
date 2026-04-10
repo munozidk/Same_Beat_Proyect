@@ -37,9 +37,9 @@ function renderPost(post) {
           <button class="comment-btn">
             <i data-lucide="message-circle"></i>
           </button>
-          <button class="share-btn">
+          <button class="share-btn" data-id="${post.id}">
             <i data-lucide="repeat-2"></i>
-            <span class="share-count">${post.repost || 0}</span>
+            <span class="share-count">${post.reposts || 0}</span>
           </button>
         </div>
         <div class="author-info">
@@ -137,18 +137,18 @@ function handleRepost(){
       e.stopPropagation();
 
       const postId = parseInt(btn.dataset.id);
-      const post = post.find(p => p.id === postId);
+      const post = posts.find(p => p.id === postId);
       const isReposted = btn.classList.contains("active");
 
       if (isReposted) {
-        post.repost = (post.repost || 1) -1;
+        post.reposts = (post.reposts || 1) -1;
         btn.classList.remove("active");
       } else {
-        post.repost = (post.repost || 0) + 1;
+        post.reposts = (post.reposts || 0) + 1;
         btn.classList.add("active");
       }
 
-      btn.querySelector(".share-count").textContent = post.repost;
+      btn.querySelector(".share-count").textContent = post.reposts;
     };
   });
 }
