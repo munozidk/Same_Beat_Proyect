@@ -188,6 +188,15 @@ html, body {
     z-index: 2; /* IMPORTANTE: Encima del frame botones menu */
 }
 
+.sidebar__nav-btn /* Navegación del sidebar */
+.sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
 .sidebar__nav-btn {
     display: flex;
     align-items: center;
@@ -196,18 +205,67 @@ html, body {
     background: linear-gradient(180deg, 
         #030008 0%, 
         #090119 33%, 
-        #2F057F 100%); /* GRADIENTE VERTICAL */
+        #2F057F 100%);
     border: 1px solid rgba(198, 255, 52, 0.2);
-    border-radius: 25px 25px 0px 25px; /*  BORDER-RADIUS */
-    color: var(--text-icon-purple); /* COLOR DE TEXTO #DDCEFC */
+    border-radius: 25px 25px 0px 25px;
+    color: var(--text-icon-purple);
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
     transition: var(--transition);
     box-shadow: 
-        -2px -4px 4px 0 rgba(0, 0, 0, 0.25) inset, /* X-2 Y-4 BLUR4 BLACK 25% */
-        0 1px 4px 0 #57349D inset, /* X0 Y1 BLUR4 57349D 100% */
-        -13px 40px 30px 0 rgba(0, 0, 0, 0.25); /* X-13 Y40 BLUR30 BLACK 25% */
+        -2px -4px 4px 0 rgba(0, 0, 0, 0.25) inset,
+        0 1px 4px 0 #57349D inset,
+        -13px 40px 30px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 2;
+}
+
+.sidebar__nav-btn:hover {
+    background: linear-gradient(180deg, 
+        #030008 0%, 
+        #090119 33%, 
+        #2F057F 100%);
+    border-color: rgba(198, 255, 52, 0.4);
+    transform: translateY(-2px);
+}
+
+.sidebar__nav-btn i {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar__nav-btn span {
+    flex: 1;
+}
+
+/* Estado activo */
+.sidebar__nav-btn--active {
+    border-color: rgba(198, 255, 52, 0.5);
+    background: linear-gradient(180deg,
+        #0a0020 0%,
+        #130035 33%,
+        #3d0aaa 100%);
+}
+
+/* BURBUJA */
+.nav-bubble {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    background: radial-gradient(circle at 35% 35%, 
+        rgba(200, 160, 255, 0.95), 
+        rgba(110, 60, 210, 0.75));
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 
+        0 0 14px rgba(160, 100, 255, 0.7),
+        inset 0 1px 3px rgba(255, 255, 255, 0.5);
+    transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 3;
 }
 
 
