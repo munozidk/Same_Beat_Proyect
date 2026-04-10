@@ -200,6 +200,16 @@ function handleCreatePost(){
     })
 }
 
+function handleBubble() {
+    document.querySelectorAll(".sidebar__nav-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".sidebar__nav-btn")
+                .forEach(b => b.classList.remove("sidebar__nav-btn--active"));
+            btn.classList.add("sidebar__nav-btn--active");
+        });
+    });
+}
+
 function initApp() {
     renderMatches(users);
     renderAllPosts(posts);
@@ -212,6 +222,7 @@ function initApp() {
     handleSearch(posts);
     handleModal();
     handleCreatePost();
+    handleBubble();
 }
 
 initApp();

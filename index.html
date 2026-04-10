@@ -34,31 +34,35 @@
         <!-- Navegación -->
         <nav class="sidebar__nav" aria-label="Navegación principal">
 
-    <!-- Burbuja animada -->
-    <div class="nav-bubble" id="navBubble"></div>
 
-    <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home" aria-label="Home">
+        <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home" aria-label="Home">
+        <div class="s-circle"></div>
         <i data-lucide="home"></i>
         <span>Home</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="concerts" aria-label="Concerts">
+        <div class="s-circle"></div>
         <i data-lucide="ticket"></i>
         <span>Concerts</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="music" aria-label="Music">
+        <div class="s-circle"></div>
         <i data-lucide="headphones"></i>
         <span>Music</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="profile" aria-label="Profile">
+        <div class="s-circle"></div>
         <i data-lucide="user"></i>
         <span>Profile</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="create" aria-label="Create">
+        <div class="s-circle"></div>
         <i data-lucide="plus"></i>
         <span>Create</span>
     </button>
 
-</nav>
+
+    </nav>
          <!-- Botón crear (abajo del sidebar) -->
         <button class="sidebar__logout-btn" id="sidebarLogoutBtn" aria-label="Salir">
             <i data-lucide="log-out"></i>
@@ -80,7 +84,7 @@
         <header class="top-bar">
 
             <!-- Título (solo desktop) -->
-            <h1><class="top-bar__title desktop-only>Home</h1>
+            <h1 class="top-bar__title desktop-only">Home</h1>
 
             <!-- Buscador -->
             <div class="search-container">
@@ -203,6 +207,9 @@
 
 <!-- NAVBAR INFERIOR Solo visible en móvil -->
 <nav class="bottom-nav mobile-only" aria-label="Navegación móvil">
+
+    <div class="bottom-bubble" id="bottomBubble"></div>
+
     <button class="nav-btn active-btn" data-tab="home" aria-label="Inicio">
         <i data-lucide="home"></i>
     </button>
