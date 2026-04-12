@@ -59,7 +59,35 @@ const posts = [
     text: "Haha, it was the best night of my life #1DFOREVER",
     likes: 103,
     reposts: 80
+  },
+
+  {
+    id: 3,
+    user: "Greicy R",
+    image: "assets/greicy.jpg",
+    text: "The BTS concert was literally the best day of my life, I can't believe I saw them live.",
+    likes: 412,
+    reposts: 89
+  },
+
+  {
+    id: 4,
+    user: " Jorge Blanco",
+    image: "assets/jorge.jpg",
+    text: "Young Miko killed it, she had so much stage presence, I loved it.",
+    likes: 198,
+    reposts: 40
+  },
+
+  {
+    id: 5,
+    user: "Gaston Sierra",
+    image: "assets/gaston.jpg",
+    text: "Maluma live is on another level, if you have the chance to go to his tour, take it!!!",
+    likes: 356,
+    reposts: 72
   }
+
 ];
 
 
