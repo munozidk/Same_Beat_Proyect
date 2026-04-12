@@ -36,27 +36,26 @@
 
 
         <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home" aria-label="Home">
-        <div class="s-circle"></div>
+     
         <i data-lucide="home"></i>
         <span>Home</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="concerts" aria-label="Concerts">
-        <div class="s-circle"></div>
+       
         <i data-lucide="ticket"></i>
         <span>Concerts</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="music" aria-label="Music">
-        <div class="s-circle"></div>
+        
         <i data-lucide="headphones"></i>
         <span>Music</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="profile" aria-label="Profile">
-        <div class="s-circle"></div>
+      
         <i data-lucide="user"></i>
         <span>Profile</span>
     </button>
     <button class="sidebar__nav-btn" data-tab="create" aria-label="Create">
-        <div class="s-circle"></div>
         <i data-lucide="plus"></i>
         <span>Create</span>
     </button>
@@ -199,33 +198,32 @@
 </div>
 
 
-<!-- BOTÓN FLOTANTE (abrir modal nuevo post) Solo visible en móvil -->
-<button class="floating-add-btn mobile-only" id="fabBtn" aria-label="Crear nuevo post">
-    <i data-lucide="plus"></i>
-</button>
-
 
 <!-- NAVBAR INFERIOR Solo visible en móvil -->
 <nav class="bottom-nav mobile-only" aria-label="Navegación móvil">
 
-    <div class="bottom-bubble" id="bottomBubble"></div>
+    <div class="nav-pill">
+        <button class="nav-btn active-btn" data-tab="home" aria-label="Inicio">
+            <i data-lucide="home"></i>
+        </button>
+        <button class="nav-btn" data-tab="concerts" aria-label="Conciertos">
+            <i data-lucide="ticket"></i>
+        </button>
+    </div>
 
-    <button class="nav-btn active-btn" data-tab="home" aria-label="Inicio">
-        <i data-lucide="home"></i>
-    </button>
-    <button class="nav-btn" data-tab="concerts" aria-label="Conciertos">
-        <i data-lucide="ticket"></i>
+    <button class="floating-add-btn" id="fabBtn" aria-label="Crear nuevo post">
+        <i data-lucide="plus"></i>
     </button>
 
-    <!-- Espacio para el botón flotante -->
-    <div class="nav-spacer" aria-hidden="true"></div>
+    <div class="nav-pill">
+        <button class="nav-btn" data-tab="music" aria-label="Música">
+            <i data-lucide="headphones"></i>
+        </button>
+        <button class="nav-btn" data-tab="profile" aria-label="Perfil">
+            <i data-lucide="user"></i>
+        </button>
+    </div>
 
-    <button class="nav-btn" data-tab="music" aria-label="Música">
-        <i data-lucide="headphones"></i>
-    </button>
-    <button class="nav-btn" data-tab="profile" aria-label="Perfil">
-        <i data-lucide="user"></i>
-    </button>
 </nav>
 
 
