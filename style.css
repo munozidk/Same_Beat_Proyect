@@ -60,8 +60,6 @@ html, body {
     display: flex;
     height: 100vh;
     width: 100%;
-    gap: 0;
-
 }
 
 /* UTILIDADES RESPONSIVE */
@@ -113,13 +111,11 @@ html, body {
 /* SIDEBAR IZQUIERDO (Desktop solo) */
 
 .sidebar {
-    -index: 0;
-    width: 240px;
+    width: 255px;
     background: linear-gradient(0deg, #030008 4.55%, #090119 47.07%, #2F057F 134.09%);
-    display: flex;
     flex-direction: column;
     padding: 24px 16px;
-    gap: 32px;
+    gap: 45px;
     border-right: 1px solid rgba(198, 255, 52, 0.1);
     overflow-y: auto;
     position: relative;
@@ -128,19 +124,18 @@ html, body {
 .sidebar::after {
     content: '';
     position: absolute;
-    justify-content: center;
-    top: 90px;
-    height: 86%; 
+    top: 92px;
+    left: 12px;
+    right: 12px;
+    height: 88%; 
     width: 90%;
-    background: rgba(126, 59, 237, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(198, 255, 52, 0.12);
-    border-radius: 45px 45px 0px 45px; /*  BORDER-RADIUS DEL FRAME */
+    background: linear-gradient(180deg, #1d034741 4.55%, #7f3bed5c 47.07% , #7f3bedd9 134.09%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 45px 45px 45px 0px; /*  BORDER-RADIUS DEL FRAME */
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    z-index: 0;
+        inset -2px 4px 5px 0px #7f3bed9e;
     pointer-events: none;
 }
 
@@ -155,7 +150,6 @@ html, body {
 
 .sidebar__logo-img {
     width: 90px;
-    height: 90 px;
     object-fit: contain;
 }
 
@@ -163,16 +157,7 @@ html, body {
 .sidebar__nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    position: relative;
-    z-index: 2; /* IMPORTANTE: Encima del frame botones menu */
-}
-
-.sidebar__nav-btn /* Navegación del sidebar */
-.sidebar__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 20px;
     position: relative;
     z-index: 2;
 }
@@ -180,8 +165,9 @@ html, body {
 .sidebar__nav-btn {
     display: flex;
     align-items: center;
-    gap: 12px;
     padding: 10px 14px;
+    width: 200px;
+    margin-left: 22px;
     background: linear-gradient(180deg, 
         #030008 0%, 
         #090119 33%, 
@@ -197,7 +183,6 @@ html, body {
         -2px -4px 4px 0 rgba(0, 0, 0, 0.25) inset,
         0 1px 4px 0 #57349D inset,
         -13px 40px 30px 0 rgba(0, 0, 0, 0.25);
-    position: relative;
     z-index: 2;
 }
 
@@ -232,7 +217,7 @@ html, body {
 .nav-bubble {
     position: absolute;
     left: 8px;
-    top: 0;
+    margin-left: 22px;
     width: 36px;
     height: 36px;
     background: radial-gradient(circle at 35% 35%, 
@@ -248,32 +233,15 @@ html, body {
     z-index: 3;
 }
 
-
-.sidebar__nav-btn:hover {
-    background: linear-gradient(180deg, 
-        #030008 0%, 
-        #090119 33%, 
-        #2F057F 100%);
-    border-color: rgba(198, 255, 52, 0.4);
-    transform: translateY(-2px);
-}
-
-.sidebar__nav-btn i {
-    width: 20px;
-    height: 20px;
-}
-
-.sidebar__nav-btn span {
-    flex: 1;
-}
-
 /* Botón crear en sidebar */
 .sidebar__logout-btn {
     display: flex;
+    gap: 60px;
+    margin-top: 70px;
     align-items: center;
-    justify-content: center; 
-    gap: 12px;
     padding: 10px 14px;
+    margin-left: 22px;
+    width: 200px;
     background: linear-gradient(135deg, var(--lime-green) 0%, var(--lime-light) 100%);
     border: 1px solid rgba(198, 255, 52, 0.2);
     border-radius: 75px 75px 0px 75px;
@@ -281,13 +249,11 @@ html, body {
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    margin-top: auto;
     transition: var(--transition);
     box-shadow: 
         -2px -4px 4px 0 rgba(0, 0, 0, 0.25) inset,
         0 1px 4px 0 #57349D inset,
         -13px 40px 30px 0 rgba(0, 0, 0, 0.25);
-    position: relative;
     z-index: 1;
 }
 
@@ -329,7 +295,6 @@ html, body {
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(198, 255, 52, 0.1);
     gap: 16px;
-    border-radius: 0;
     min-height: 60px;
     position: relative;
 }
@@ -721,13 +686,18 @@ html, body {
 .post-card {
     display: flex;
     flex-direction: column;
-    gap: 0;
     width: 100%;
-    background: rgba(133, 133, 133, 0.90);
-    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 28px  28px  28px 28px;
     padding: 0;
     transition: var(--transition);
     position: relative;
+    background: rgb(104, 102, 102);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px #ffffff94;
 }
 
 .post-header {
@@ -738,20 +708,6 @@ html, body {
     position: relative;
     height: 65px;
 
-}
-
-.author-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(180deg, #462389 0%, #7E3BED 100%);
-    border-radius: 0 28px 28px 28px;
-    top: 0;
-    right: 0;
-    padding: 8px 0px 8px 16px;
-    position: absolute;
-    height: 65px;
-    min-width: 180px;
 }
 
 .comment-profile-pic {
@@ -862,16 +818,24 @@ html, body {
     height: 16px;
 }
 .author-info {
-     display: flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(252, 252, 252, 0.51);
     background: linear-gradient(180deg, #462389 0%, #7E3BED 100%);
-    border-radius: 0 0 28px 28px;
+    border-radius: 0px 25px 25px 25px;
     top: 0;
     right: 0;
     padding: 8px 12px 8px 16px;
     position: absolute;
     height: 65px;
+    min-width: 180px;
+    
 }
 
 .comment-profile-pic {
