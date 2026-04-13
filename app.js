@@ -219,6 +219,26 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
     });
 });
 
+//reproductor de musica
+function handlePlayer() {
+  const audio = document.getElementById("audio");
+  const playBtn = document.getElementById("playBtn");
+
+  playBtn.addEventListener("click", () => {
+    const icon = playBtn.querySelector("svg"); 
+
+    if (audio.paused) {
+      audio.play();
+      playBtn.innerHTML = `<i data-lucide="pause"></i>`;
+    } else {
+      audio.pause();
+      playBtn.innerHTML = `<i data-lucide="play"></i>`;
+    }
+
+    lucide.createIcons(); 
+  });
+}
+
 function initApp() {
     renderMatches(users);
     renderAllPosts(posts);
@@ -232,6 +252,7 @@ function initApp() {
     handleModal();
     handleCreatePost();
     handleBubble();
+    handlePlayer(); //aqui se llama la función del reproductor de música
 }
 
 initApp();
