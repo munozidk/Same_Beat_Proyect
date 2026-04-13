@@ -1164,12 +1164,13 @@ html, body {
     overflow: visible;
 }
 
-.nav-pill{
+.nav-pill {
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
-    padding: 12px 20px;
+    gap: 8px; /* reducido para que no se salga */
+    padding: 8px 12px;
     background: linear-gradient(0deg, #030008 0%, #090119 33%, #2F057F 100%);
     border-radius: 33px;
     box-shadow: 
@@ -1182,13 +1183,14 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     background: transparent;
     border: none;
     color: #DECFFC;
     cursor: pointer;
     transition: var(--transition);
+    position: relative;
 }
 /*Hover de los botones del menu celu*/
 .nav-btn:hover {
@@ -1205,10 +1207,41 @@ html, body {
     border: none;
 }
 
+.nav-btn::before{
+   content: '';
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    background: rgba(217, 217, 217, 0.20);
+    z-index: 1;
+    opacity: 0;
+    scale: 0.5;
+    transition: opacity 300ms ease, scale 350ms cubic-bezier(0.34, 1.5, 0.64, 1);
+
+}
+
+.nav-btn:hover::before,.nav-btn.active-btn::before {
+    opacity: 1;
+    scale: 1;
+}
+
+.nav-btn.active-btn i {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-btn.active-btn {
+    color: #DECFFC;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
 
 .nav-btn i {
-    width: 22px;
-    height: 22px;
+    position: relative;
+    z-index: 0;
 }
 
 .floating-add-btn {
@@ -1243,6 +1276,27 @@ html, body {
         -2.36px -4.72px 4.72px #A5D233 inset,
         0px 2.36px 15px #CEFF51 inset,
         0 0 20px rgba(198,255,52,0.4);
+}
+
+.nav-btn.active-btn::before {
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        inset 2px 3px 0px rgba(255, 255, 255, 0.3),
+        inset -1px -2px 0px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+.nav-btn.active-btn i {
+    position: relative;
+    z-index: 1;
 }
 
 

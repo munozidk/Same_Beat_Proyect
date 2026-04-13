@@ -210,6 +210,14 @@ function handleBubble() {
     });
 }
 
+document.querySelectorAll(".nav-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".nav-btn")
+            .forEach(b => b.classList.remove("active-btn"));
+        btn.classList.add("active-btn");
+    });
+});
+
 function initApp() {
     renderMatches(users);
     renderAllPosts(posts);
