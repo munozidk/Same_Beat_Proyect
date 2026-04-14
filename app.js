@@ -25,6 +25,17 @@ function renderMatches(users) {
 
 
 function renderPost(post) {
+  //se crea aca pq si se hace en el html no se pueden agregar los comentarios dinámicamente
+  const commentsHTML = (post.comments || []).map(c => `
+    <div class="comment-item">
+      <img src="${c.image}" alt="${c.user}" class="comment-avatar">
+      <div class="comment-bubble">
+        <span class="comment-username">${c.user}</span>
+        <p class="comment-text">${c.text}</p>)
+      </div>
+    </div>
+  `).join("");
+
   return `
     <article class="post-card">
 
@@ -34,7 +45,7 @@ function renderPost(post) {
             <i data-lucide="heart"></i>
             <span class="like-count">${post.likes || 0}</span>
           </button>
-          <button class="comment-btn">
+          <button class="comment-btn" data-id="${post.id}">
             <i data-lucide="message-circle"></i>
           </button>
           <button class="share-btn" data-id="${post.id}">
@@ -50,6 +61,25 @@ function renderPost(post) {
 
       <div class="post-content">
         <p>${post.text}</p>
+      </div>
+
+      <div class="comments-section" id="comments-${post.id}" style="display:none;">
+        <div class="comments-list" id="comments-list-${post.id}">
+          ${commentsHTML}
+        </div>
+        <div class="comment-input-row">
+          <img src="assets/avatar 1.jpg" alt="You" class="comment-avatar">
+          <input
+            type="text"
+            class="comment-input"
+            id="comment-input-${post.id}"
+            placeholder="Write a comment..."
+            maxlenght="200"
+          >
+          <button class="comment-submit-btn" data-id="${post.id}">
+            <i data-lucide="send"></i>
+          </button>
+        </div>
       </div>
 
     </article>
@@ -123,6 +153,7 @@ function handleSearch(posts) {
         renderAllPosts(filteredPosts);
 
         lucide.createIcons();
+        handleComments();
         handleRepost();
         handleLike(); // Reattach like event listeners after rendering new posts (Esto es para reactivar los eventos)
 
@@ -150,6 +181,63 @@ function handleRepost(){
       }
 
       btn.querySelector(".share-count").textContent = post.reposts;
+    };
+  });
+}
+
+function handleComments(){
+  //mostrar o ocultar los comentarios
+
+  document.querySelectorAll(".comment-btn").forEach(btn => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      const postId = btn.dataset.id;
+      const section = document.getElementById(`comments-${postId}`);
+      const isOpen = section.style.display === "flex";
+      section.style.display = isOpen ? "none" : "flex";
+    };
+  });
+
+   // Publicar comentario
+  document.querySelectorAll(".comment-submit-btn").forEach(btn => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      const postId = parseInt(btn.dataset.id);
+      const input = document.getElementById(`comment-input-${postId}`);
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      const post = posts.find(p => p.id === postId);
+      if (!post.comments) post.comments = [];
+
+      const newComment = {
+        id: post.comments.length + 1,
+        user: "You",
+        image: "assets/avatar 1.jpg",
+        text: text
+      };
+
+      post.comments.push(newComment);
+
+      // Agregar el comentario al DOM sin re-renderizar todo
+      const list = document.getElementById(`comments-list-${postId}`);
+      const div = document.createElement("div");
+      div.classList.add("comment-item");
+      div.innerHTML = `
+        <img src="${newComment.image}" alt="${newComment.user}" class="comment-avatar">
+        <div class="comment-bubble">
+          <span class="comment-username">${newComment.user}</span>
+          <p class="comment-text">${newComment.text}</p>
+        </div>
+      `;
+      list.appendChild(div);
+
+      // Actualizar contador
+      btn.closest(".post-card")
+        .querySelector(".comment-count").textContent = post.comments.length;
+
+      input.value = "";
     };
   });
 }
@@ -213,6 +301,7 @@ function handleCreatePost(){
         renderAllPosts(posts);
 
         lucide.createIcons();
+        handleComments();
         handleRepost();
         handleLike();  
 
@@ -268,6 +357,7 @@ function initApp() {
 
     handleLike();
     handleRepost();
+    handleComments();
     handleSearch(posts);
     handleFab();
     handleCreatePost();

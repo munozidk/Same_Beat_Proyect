@@ -50,7 +50,10 @@ const posts = [
     image: "assets/AronPiper.jpg",
     text: "I love going with Alvaro Diaz’s community in Colombia. Everyone has a wonderful vibe.",
     likes: 28,
-    reposts: 14
+    reposts: 14,
+    comments: [
+      { id: 1, user: "Jennie Kim", image: "assets/jennie.jpg", text: "Amazing!🎶, Best community ever!" }
+    ]
   },
   {
     id: 2,
@@ -58,7 +61,10 @@ const posts = [
     image: "assets/jennie.jpg",
     text: "Haha, it was the best night of my life #1DFOREVER",
     likes: 103,
-    reposts: 80
+    reposts: 80,
+    comments: [
+      { id: 1, user: "Aron Piper", image: "assets/AronPiper.jpg", text: "Best night ever! 🔥 I hope they never break up..." }
+    ]
   },
 
   {
