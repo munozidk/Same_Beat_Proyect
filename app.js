@@ -241,11 +241,7 @@ function handleComments(){
         .querySelector(".comment-count").textContent = post.comments.length;
 
       input.value = "";
-
-      
-    
       console.log("despues de limpiar", input.value);
-
     };
   });
 }
@@ -422,6 +418,33 @@ function handlePlayer() {
   });
 }
 
+function handleSidebarDropdown() {
+  const dropdown = document.getElementById("sidebarDropdown");
+  const toggleBtn = document.getElementById("sidebarCreateBtn");
+  const dropPost = document.getElementById("sidebarDropPost");
+
+  if (!dropdown || !toggleBtn) return;
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("open");
+    lucide.createIcons();
+  });
+
+  if (dropPost) {
+    dropPost.addEventListener("click", () => {
+      dropdown.classList.remove("open");
+      openModal();
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("open");
+    }
+  });
+}
+
 function initApp() {
     renderMatches(users);
     renderAllPosts(posts);
@@ -437,6 +460,8 @@ function initApp() {
     handleCreatePost();
     handleBubble();
     handlePlayer(); //aqui se llama la función del reproductor de música
-}
+    handleSidebarDropdown();
+
+  }
 
 initApp();

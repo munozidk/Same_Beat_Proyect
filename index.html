@@ -57,10 +57,26 @@
             <span>Profile</span>
         </button>
 
-        <button class="sidebar__nav-btn" data-tab="create">
-            <i data-lucide="plus"></i>
-            <span>Create</span>
-        </button>
+        <div class="sidebar__dropdown" id="sidebarDropdown">
+  <button class="sidebar__nav-btn" id="sidebarCreateBtn" data-tab="create">
+        <i data-lucide="plus"></i>
+    <span>Create</span>
+  </button>
+  <div class="sidebar__dropdown-menu" id="sidebarDropdownMenu">
+    <button class="sidebar__dropdown-item" id="sidebarDropPost">
+      <i data-lucide="pencil"></i> Post
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="music"></i> Song
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="video"></i> Video
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="image"></i> Photo
+    </button>
+  </div>
+</div>
 
     </nav>
 
@@ -72,8 +88,7 @@
     </button>
 
     </aside><!-- fin .sidebar -->
-
-
+    
     <!-- ============================================
          CONTENIDO CENTRAL
          Visible en móvil y desktop
@@ -126,7 +141,7 @@
        
         <!-- SECCIÓN MATCHES Los match cards se generan desde data.js + app.js -->
         <section class="matches-section">
-            <h2><class="matches-section__title desktop-only">Suggestions</h2>
+            <h2><class="matches-section__title desktop-only>Suggestions</h2>
 
             <div class="horizontal-scroll" id="matchesContainer">
 
@@ -258,7 +273,7 @@
     <div class="modal-box">
 
         <div class="modal-header">
-            <h2 class="modal-title">Nuevo post</h2>
+            <h2 class="modal-title">New post</h2>
             <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">
                 <i data-lucide="x"></i>
             </button>
@@ -267,13 +282,13 @@
         <textarea
             class="modal-textarea"
             id="postTextarea"
-            placeholder="¿Qué estás escuchando hoy?"
+            placeholder="How was the concert?"
             maxlength="280"
             aria-label="Contenido del post"
         ></textarea>
 
         <button class="modal-submit-btn" id="modalSubmitBtn">
-            Publicar
+            Post
         </button>
 
         <audio id="audio"></audio>
