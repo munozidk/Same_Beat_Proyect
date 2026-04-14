@@ -238,7 +238,7 @@ html, body {
 .sidebar__logout-btn {
     display: flex;
     gap: 60px;
-    margin-top: 70px;
+    margin-top: 20px;
     align-items: center;
     padding: 10px 14px;
     margin-left: 22px;
@@ -1873,6 +1873,7 @@ button, a {
     transition: all 0.2s ease;
     z-index: 10;
 }
+
 
 .sidebar__dropdown { position: relative; z-index: 10; 
 }
