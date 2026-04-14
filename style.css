@@ -1573,7 +1573,7 @@ button, a {
     height: 22px;
     transition: var(--transition);
 }
-    */
+    
 
 .share-btn.active i {
   stroke: var(--lime-green);
@@ -1597,3 +1597,5 @@ button, a {
         #3d0aaa 100%);
     border-color: rgba(198, 255, 52, 0.4);
 }
+
+
