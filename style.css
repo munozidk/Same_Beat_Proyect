@@ -458,47 +458,48 @@ html, body {
 
 .match-info-glass {
     position: absolute;
-    display: flex;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    padding: 14px;
-    color: white;
-
     width: 100%;
-    height: 85px;
+    color: white;
+    height: 39%;
 
 
     backdrop-filter: blur(100%);
     -webkit-backdrop-filter: blur(100%);
+    overflow: hidden;
 
     background: linear-gradient(
         135deg,
-        rgba(126, 59, 237, 0.45),
-        rgba(70, 35, 137, 0.35)
+        rgba(127, 59, 237, 0.323),
+        rgba(93, 8, 250, 0.777)
     );
 
-   
-
-    border-top: 1px solid rgba(198, 255, 52, 0.2);
-    border-radius: 0px 40px 20px 20px;
-
+    border-radius: 0px 0px 20px 20px;
+     -webkit-backdrop-filter: blur(105px);
+     
 
     box-shadow: 
-        inset 0 1px 1px rgba(255,255,255,0.15),
-        0 -10px 30px rgba(126, 59, 237, 0.4);
+        inset 0 1px 1px rgba(255,255,255,0.20),
+        0 -10px 30px rgba(126, 59, 237, 0.20);
         
      clip-path: path("M55.7314 0H10.9764C4.91428 0 0 4.91428 0 10.9763V70.6855H154.312V25.5148C154.312 19.4527 149.398 14.5384 143.336 14.5384H80.4568C77.4228 14.5384 74.5242 13.2826 72.4491 11.0692L66.4083 4.62563C63.6416 1.67441 59.7767 0 55.7314 0Z");
+     transform: translateY(15px);
+}
+@media (min-width: 1024px) {
+    .match-info-glass {
+        height: 50%;
+    }
 }
 .matches-section {
-    display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 16px;
+    gap: 0px;
+    padding: 0px;
     border-bottom: 1px solid rgba(198, 255, 52, 0.1);
+
+    background: rgba(10, 2, 23, 0.5);
+
     background:transparent;
     position: relative;
+
     z-index: 2;
 }
 
@@ -552,7 +553,7 @@ html, body {
     cursor: pointer;
     transition: var(--transition);
     flex-shrink: 0;
-    border: 2px solid rgba(198, 255, 52, 0.2);
+    border: 2px solid rgba(197, 255, 52, 0.073);
 }
 
 @media (min-width: 1024px) {
@@ -601,12 +602,13 @@ html, body {
 .match-card .match-info {
     position: absolute;
     bottom: 8px;
+    padding: 12px;
     left: 8px;
     right: 8px;
     z-index: 2;
     color: var(--white);
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight:500;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -694,7 +696,7 @@ html, body {
     padding: 0;
     transition: var(--transition);
     position: relative;
-    background: rgb(104, 102, 102);
+    background: #767474;
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     box-shadow: 
@@ -1673,8 +1675,9 @@ button, a {
 .comments-section {
   display: none;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding-top: 10px;
+  padding: 15px;
   border-top: 1px solid rgba(198, 255, 52, 0.1);
   animation: slideInUp 0.3s ease-out;
 }
