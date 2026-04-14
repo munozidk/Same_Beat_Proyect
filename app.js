@@ -241,7 +241,11 @@ function handleComments(){
         .querySelector(".comment-count").textContent = post.comments.length;
 
       input.value = "";
+
+      
+    
       console.log("despues de limpiar", input.value);
+
     };
   });
 }
