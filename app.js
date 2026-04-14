@@ -463,5 +463,4 @@ function initApp() {
     handleSidebarDropdown();
 
   }
-
 initApp();
