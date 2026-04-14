@@ -238,6 +238,8 @@ function handleComments(){
         .querySelector(".comment-count").textContent = post.comments.length;
 
       input.value = "";
+      
+      
     };
   });
 }
