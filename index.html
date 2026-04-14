@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Same Beat</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================================
+     LAYOUT PRINCIPAL
+     En móvil: una columna
+     En desktop: sidebar | contenido | panel derecho
+     ================================================ -->
+<div class="app-layout">
+
+    <!-- ============================================
+         SIDEBAR IZQUIERDO
+         Solo visible en desktop (CSS lo oculta en móvil)
+         ============================================ -->
+    <aside class="sidebar desktop-only">
+
+        <!-- Logo -->
+        <div class="sidebar__logo">
+            <img src="assets/mockis.png" alt="Same Beat logo" class="sidebar__logo-img">
+        </div>
+
+        <!-- Navegación -->
+        <nav class="sidebar__nav" aria-label="Navegación principal">
+
+        <!-- BURBUJA -->
+        <div class="sidebar__bubble"></div>
+
+        <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </button>
+
+        <button class="sidebar__nav-btn" data-tab="concerts">
+            <i data-lucide="ticket"></i>
+            <span>Concerts</span>
+        </button>
+
+        <button class="sidebar__nav-btn" data-tab="music">
+            <i data-lucide="headphones"></i>
+            <span>Music</span>
+        </button>
+
+        <button class="sidebar__nav-btn" data-tab="profile">
+            <i data-lucide="user"></i>
+            <span>Profile</span>
+        </button>
+
+        <div class="sidebar__dropdown" id="sidebarDropdown">
+  <button class="sidebar__nav-btn" id="sidebarCreateBtn" data-tab="create">
+        <i data-lucide="plus"></i>
+    <span>Create</span>
+  </button>
+  <div class="sidebar__dropdown-menu" id="sidebarDropdownMenu">
+    <button class="sidebar__dropdown-item" id="sidebarDropPost">
+      <i data-lucide="pencil"></i> Post
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="music"></i> Song
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="video"></i> Video
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="image"></i> Photo
+    </button>
+  </div>
+</div>
+
+    </nav>
+
+
+         <!-- Botón crear (abajo del sidebar) -->
+        <button class="sidebar__logout-btn" id="sidebarLogoutBtn" aria-label="Salir">
+            <i data-lucide="log-out"></i>
+            <span>Log out</span>
+    </button>
+
+    </aside><!-- fin .sidebar -->
+    
+    <!-- ============================================
+         CONTENIDO CENTRAL
+         Visible en móvil y desktop
+         ============================================ -->
+    <div class="main-content">
+
+        <!-- ----------------------------------------
+             HEADER
+             ---------------------------------------- -->
+        <header class="top-bar">
+
+            <!-- Título (solo desktop) -->
+            <h1 class="top-bar__title desktop-only">Home</h1>
+
+            <!-- Buscador -->
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Buscar artistas, posts..."
+                    aria-label="Buscar"
+                >
+            </div>
+
+            <!-- Íconos del header -->
+            <div class="top-bar__icons">
+                <button class="top-bar__icon-btn" aria-label="Notificaciones">
+                    <i data-lucide="bell"></i>
+                </button>
+
+                <!-- Chats: solo visible en móvil (en desktop está el panel derecho) -->
+                <button class="top-bar__icon-btn mobile-only" aria-label="Mensajes">
+                    <i data-lucide="send"></i>
+                </button>
+
+                <button class="top-bar__icon-btn" aria-label="Ajustes">
+                    <i data-lucide="settings"></i>
+                </button>
+
+                <!-- Avatar del usuario -->
+                <div class="top-bar__avatar" aria-label="Mi perfil">
+                    <img src="assets/avatar 1.jpg" alt="Mi perfil" id="userAvatar">
+                </div>
+            </div>
+
+        </header>
+
+       
+        <!-- SECCIÓN MATCHES Los match cards se generan desde data.js + app.js -->
+        <section class="matches-section">
+            <h2><class="matches-section__title desktop-only>Suggestions</h2>
+
+            <div class="horizontal-scroll" id="matchesContainer">
+
+                <!-- Botón fijo: añadir match -->
+                <article class="match-card add-card" id="addMatchBtn" aria-label="Hacer un match">
+                    <p> <h4><class="match-text-small">Make a match</h4></p>
+                    <div class="add-icon-container">
+                        <i data-lucide="plus"></i>
+                    </div>
+                </article>
+
+                <!-- Los demás match cards se insertan aquí por app.js -->
+        </section>
+
+
+        <!--FEED DE POSTS Los posts se generan desde data.js + app.js -->
+        <main class="feed-section" id="feedSection">
+
+            <!-- Los posts se insertan aquí por app.js -->
+
+        </main>
+
+    </div>
+
+
+    <!-- PANEL DERECHO Solo visible en desktop (CSS lo oculta en móvil)-->
+    <aside class="right-panel desktop-only">
+
+
+        <!-- FRAME LIQUID GLASS para CHAT LIST -->
+        <div class="chat-list__glass-frame">
+             <section class="chat-list" id="chatList">
+            </section>
+                
+        </div>
+
+
+        <!-- Now Playing -->
+        <section class="now-playing">
+            <h3 class="now-playing__title">Now Playing</h3>
+
+        <div class="now-playing__cover">
+           <img src="assets/cover.jpg" id="nowPlayingCover">
+        </div>
+
+        <div class="now-playing__info">
+           <h4 id="songName">Nombre canción</h4>
+           <p id="artistName">Artista</p>
+        </div>
+
+            <!-- Barra de progreso -->
+            <div class="now-playing__bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Controles del reproductor -->
+            <div class="now-playing__controls">
+
+              <button class="player-btn" id="prevBtn" aria-label="Anterior">
+              <i data-lucide="skip-back"></i>
+            </button>
+
+            <button class="player-btn player-btn--play" id="playBtn" aria-label="Play/Pausa">
+               <i data-lucide="play"></i>
+            </button>
+
+              <button class="player-btn" id="nextBtn" aria-label="Siguiente">
+               <i data-lucide="skip-forward"></i>
+            </button>
+
+            </div>
+
+        </section>
+
+    </aside>
+
+</div>
+
+<!-- NAVBAR INFERIOR Solo visible en móvil -->
+<nav class="bottom-nav mobile-only" aria-label="Navegación móvil">
+
+    <div class="nav-pill">
+        <button class="nav-btn active-btn" data-tab="home" aria-label="Inicio">
+            <i data-lucide="home"></i>
+        </button>
+        <button class="nav-btn" data-tab="concerts" aria-label="Conciertos">
+            <i data-lucide="ticket"></i>
+        </button>
+    </div>
+
+    <div class="fab mobile-only" id="fabContainer">
+     <div tabindex="0" role="button" class="fab-main-btn" id="fabBtn">
+         <i data-lucide="plus"></i>
+    </div>
+  <button class="fab-option-btn" id="fabOptPost" aria-label="Escribir post">
+    <i data-lucide="pencil"></i>
+  </button>
+  <button class="fab-option-btn" aria-label="Subir canción">
+    <i data-lucide="music"></i>
+  </button>
+  <button class="fab-option-btn" aria-label="Subir video">
+    <i data-lucide="video"></i>
+  </button>
+  <button class="fab-option-btn" aria-label="Subir foto">
+    <i data-lucide="image"></i>
+  </button>
+</div>
+
+    <div class="nav-pill">
+        <button class="nav-btn" data-tab="music" aria-label="Música">
+            <div class="nav-bubble"></div>
+            <i data-lucide="headphones"></i>
+        </button>
+        <button class="nav-btn" data-tab="profile" aria-label="Perfil">
+            <div class="nav-bubble"></div>
+            <i data-lucide="user"></i>
+        </button>
+    </div>
+
+</nav>
+
+
+<!-- MODAL: CREAR NUEVO POST Se muestra/oculta desde app.js -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Crear post">
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h2 class="modal-title">New post</h2>
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <textarea
+            class="modal-textarea"
+            id="postTextarea"
+            placeholder="How was the concert?"
+            maxlength="280"
+            aria-label="Contenido del post"
+        ></textarea>
+
+        <button class="modal-submit-btn" id="modalSubmitBtn">
+            Post
+        </button>
+
+        <audio id="audio"></audio>
+
+    </div>
+</div>
+
+
+<!-- ================================================
+     SCRIPTS
+     Orden importante: data.js primero, app.js después
+     ================================================ -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>
+
