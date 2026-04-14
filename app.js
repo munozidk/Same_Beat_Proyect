@@ -31,7 +31,7 @@ function renderPost(post) {
       <img src="${c.image}" alt="${c.user}" class="comment-avatar">
       <div class="comment-bubble">
         <span class="comment-username">${c.user}</span>
-        <p class="comment-text">${c.text}</p>)
+        <p class="comment-text">${c.text}</p>
       </div>
     </div>
   `).join("");
@@ -47,6 +47,7 @@ function renderPost(post) {
           </button>
           <button class="comment-btn" data-id="${post.id}">
             <i data-lucide="message-circle"></i>
+            <span class="comment-count">${post.comments?.length || 0}</span>
           </button>
           <button class="share-btn" data-id="${post.id}">
             <i data-lucide="repeat"></i>
@@ -74,7 +75,7 @@ function renderPost(post) {
             class="comment-input"
             id="comment-input-${post.id}"
             placeholder="Write a comment..."
-            maxlenght="200"
+            maxlength="200"
           >
           <button class="comment-submit-btn" data-id="${post.id}">
             <i data-lucide="send"></i>
@@ -206,6 +207,8 @@ function handleComments(){
       const input = document.getElementById(`comment-input-${postId}`);
       const text = input.value.trim();
 
+      console.log("antes de limpiar", input.value);
+
       if (!text) return;
 
       const post = posts.find(p => p.id === postId);
@@ -238,9 +241,11 @@ function handleComments(){
         .querySelector(".comment-count").textContent = post.comments.length;
 
       input.value = "";
+      console.log("despues de limpiar", input.value);
     };
   });
 }
+
 
 function openModal(){
     document.getElementById("modalOverlay").style.display = "flex";
