@@ -351,7 +351,7 @@ html, body {
     align-items: center;
     flex: 1;
     max-width: 400px;
-    background: rgba(198, 255, 52, 0.15);
+    background:linear-gradient(360deg, rgba(197, 255, 52, 0.837) 0%, rgba(118, 153, 31, 0.766) 100%);
     border: 1.5px solid var(--lime-green);
     border-radius: 75.93px 75.95px 75.95px 75.93px;    padding: 8px 14px;
     gap: 10px;
@@ -364,6 +364,7 @@ html, body {
         flex: 1;
     }
 }
+
 .search-container:focus-within {
     background: rgba(198, 255, 52, 0.25);
     box-shadow: 0 0 15px rgba(198, 255, 52, 0.3);
@@ -372,7 +373,7 @@ html, body {
 .search-icon {
     width: 18px;
     height: 18px;
-    color: var(--lime-green);
+    color: #130035;
     flex-shrink: 0;
 }
 
@@ -380,13 +381,13 @@ html, body {
     flex: 1;
     background: transparent;
     border: none;
-    color: var(--white);
+    color:rgba(19, 2, 53, 0.6) ;
     font-size: 14px;
     outline: none;
 }
 
 .search-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color:rgba(19, 2, 53, 0.6);
 }
 
 /* Iconos del top bar */
