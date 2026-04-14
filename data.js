@@ -34,11 +34,44 @@ const users = [
 
 // NOW PLAYING
 
-const nowPlaying = {
-  name: "Fiebre",
-  artist: "Bad Gyal",
-  image: "assets/fiebre.jpg"
-};
+const songs = [
+  {
+    name: "Dardos",
+    artist: "Prince Royce",
+    image: "assets/cover.jpg",
+    audio: "assets/dardos.mp3"
+  },
+  {
+    name: "Sorry",
+    artist: "Justin Bieber",
+    image: "assets/sorryjb.jpg",
+    audio: "assets/sorry.mp3"
+  },
+  {
+    name: "No se habla de Bruno",
+    artist: "Disney",
+    image: "assets/encanto.webp",
+    audio: "assets/Bruno.mp3"
+  },
+  {
+    name: "Mic Drop",
+    artist: "BTS",
+    image: "assets/micdrop.jpg",
+    audio: "assets/micdropp.mp3"
+  },
+  {
+    name: "If I Could Fly",
+    artist: "One direction",
+    image: "assets/onedirection.jpg",
+    audio: "assets/IfICouldFly.mp3"
+  },
+  {
+    name: "Festival",
+    artist: "Los polinesios",
+    image: "assets/lospolinesios.jpg",
+    audio: "assets/Festival.mp3"
+  }
+];
 
 
 // POSTS
