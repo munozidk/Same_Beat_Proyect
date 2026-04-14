@@ -209,9 +209,23 @@
         </button>
     </div>
 
-    <button class="floating-add-btn" id="fabBtn" aria-label="Crear nuevo post">
-        <i data-lucide="plus"></i>
-    </button>
+    <div class="fab mobile-only" id="fabContainer">
+     <div tabindex="0" role="button" class="fab-main-btn" id="fabBtn">
+         <i data-lucide="plus"></i>
+    </div>
+  <button class="fab-option-btn" id="fabOptPost" aria-label="Escribir post">
+    <i data-lucide="pencil"></i>
+  </button>
+  <button class="fab-option-btn" aria-label="Subir canción">
+    <i data-lucide="music"></i>
+  </button>
+  <button class="fab-option-btn" aria-label="Subir video">
+    <i data-lucide="video"></i>
+  </button>
+  <button class="fab-option-btn" aria-label="Subir foto">
+    <i data-lucide="image"></i>
+  </button>
+</div>
 
     <div class="nav-pill">
         <button class="nav-btn" data-tab="music" aria-label="Música">

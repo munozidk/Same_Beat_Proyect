@@ -161,15 +161,35 @@ function closeModal(){
     document.getElementById("modalOverlay").style.display = "none";
 }
 
-function handleModal(){
-    const fabBtn =  document.getElementById("fabBtn");
-    const sidebarBtn = document.getElementById("sidebarCreateBtn");
-    const closeBtn = document.getElementById("modalCloseBtn");
+function handleFab() {
+  const fab = document.getElementById('fabContainer');
+  const fabBtn = document.getElementById('fabBtn');
+  const closeBtn = document.getElementById("modalCloseBtn");
 
-    if (fabBtn) fabBtn.addEventListener("click", openModal);
-    if (sidebarBtn) sidebarBtn.addEventListener("click", openModal);
-    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (fabBtn) {
+    fabBtn.addEventListener('click', () => {
+      fab.classList.toggle('open');
+      lucide.createIcons();
+    });
+  }
+
+  const optPost = document.getElementById('fabOptPost');
+  if (optPost) {
+    optPost.addEventListener('click', () => {
+      fab.classList.remove('open');
+      openModal();
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+  document.addEventListener('click', (e) => {
+    if (fab && !fab.contains(e.target)) {
+      fab.classList.remove('open');
+    }
+  });
 }
+
 
 function handleCreatePost(){
     const submitBtn = document.getElementById("modalSubmitBtn");
@@ -248,7 +268,7 @@ function initApp() {
     handleLike();
     handleRepost();
     handleSearch(posts);
-    handleModal();
+    handleFab();
     handleCreatePost();
     handleBubble();
     handlePlayer(); //aqui se llama la función del reproductor de música
