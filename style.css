@@ -364,7 +364,6 @@ html, body {
         flex: 1;
     }
 }
-
 .search-container:focus-within {
     background: rgba(198, 255, 52, 0.25);
     box-shadow: 0 0 15px rgba(198, 255, 52, 0.3);
