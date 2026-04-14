@@ -454,16 +454,14 @@ html, body {
 
 .match-info-glass {
     position: absolute;
-    left: 0;
-    top: 126px;
     width: 100%;
     color: white;
-
-    height: 36%;
+    height: 39%;
 
 
     backdrop-filter: blur(100%);
     -webkit-backdrop-filter: blur(100%);
+    overflow: hidden;
 
     background: linear-gradient(
         135deg,
@@ -473,14 +471,20 @@ html, body {
 
     border-radius: 0px 0px 20px 20px;
      -webkit-backdrop-filter: blur(105px);
+     
 
     box-shadow: 
         inset 0 1px 1px rgba(255,255,255,0.20),
         0 -10px 30px rgba(126, 59, 237, 0.20);
         
      clip-path: path("M55.7314 0H10.9764C4.91428 0 0 4.91428 0 10.9763V70.6855H154.312V25.5148C154.312 19.4527 149.398 14.5384 143.336 14.5384H80.4568C77.4228 14.5384 74.5242 13.2826 72.4491 11.0692L66.4083 4.62563C63.6416 1.67441 59.7767 0 55.7314 0Z");
+     transform: translateY(15px);
 }
-
+@media (min-width: 1024px) {
+    .match-info-glass {
+        height: 50%;
+    }
+}
 .matches-section {
     flex-direction: column;
     gap: 0px;
