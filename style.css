@@ -293,9 +293,8 @@ html, body {
     justify-content: space-between;
     padding: 12px 16px;
     background: transparent;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(198, 255, 52, 0.1);
-    gap: 16px;
+    backdrop-filter: blur(2px);
+    gap: 12px;
     min-height: 60px;
     position: relative;
 }
@@ -303,13 +302,11 @@ html, body {
 .top-bar::before {
     content: '';
     position: absolute;
-    top: 8px;
+    top: 11px;
     left: 8px;
     right: 8px;
     height: 44px;
     background: rgba(255, 254, 254, 0.184);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(198, 255, 52, 0.12);
     border-radius: 75px 75px 75px 75px; 
     box-shadow: 
@@ -351,7 +348,9 @@ html, body {
 /* Buscador */
 .search-container {
     display: flex;
+    margin-top: 6px;
     align-items: center;
+    overflow: hidden;
     flex: 1;
     max-width: 400px;
     background:linear-gradient(360deg, rgba(197, 255, 52, 0.837) 0%, rgba(118, 153, 31, 0.766) 100%);
@@ -409,6 +408,7 @@ html, body {
 .top-bar__icon-btn {
     display: flex;
     align-items: center;
+    overflow: hidden;
     justify-content: center;
     width: 40px;
     height: 40px;
@@ -419,6 +419,7 @@ html, body {
     cursor: pointer;
     transition: var(--transition);
     flex-shrink: 0;
+    z-index: 0;
 }
 
 .top-bar__icon-btn:hover {
@@ -437,6 +438,7 @@ html, body {
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: 4px;
     border: 2px solid var(--lime-green);
     cursor: pointer;
     transition: var(--transition);
@@ -1306,10 +1308,23 @@ html, body {
     height: 48px;
     border-radius: 9999px;
     background: rgba(217, 217, 217, 0.20);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
+    
+    box-shadow: 
+        inset 2px 2px 2px #7f3bedd4,
+        inset -2px -2px 6px rgba(0, 0, 0, 0.218),
+        0 8px 20px rgba(0,0,0,0.4);
+
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 10;
     z-index: 1;
     opacity: 0;
     scale: 0.5;
     transition: opacity 300ms ease, scale 350ms cubic-bezier(0.34, 1.5, 0.64, 1);
+
 
 }
 
@@ -1376,14 +1391,7 @@ html, body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-        inset 2px 3px 0px rgba(255, 255, 255, 0.3),
-        inset -1px -2px 0px rgba(0, 0, 0, 0.2);
-    z-index: 0;
+   
 }
 
 .nav-btn.active-btn i {
@@ -1843,25 +1851,25 @@ button, a {
 
 /*  BURBUJA GLASS */
 .sidebar__bubble {
+    margin-left: 3.1%;
     position: absolute;
-    width: 55px;
-    height: 55px;
+    width: 49px;
+    height: 49px;
     border-radius: 50%;
     pointer-events: none;
 
     background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
 
     border: 1px solid rgba(255, 255, 255, 0.241);
 
     box-shadow: 
-        inset 2px 2px 6px rgba(255, 255, 255, 0.297),
-        inset -2px -2px 6px rgba(0,0,0,0.2),
+        inset 2px 2px 2px #7f3bedd4,
+        inset -2px -2px 6px rgba(0, 0, 0, 0.218),
         0 8px 20px rgba(0,0,0,0.4);
 
     opacity: 0;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     z-index: 10;
 }
-
