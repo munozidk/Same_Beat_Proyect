@@ -311,12 +311,35 @@ function handleCreatePost(){
 }
 
 function handleBubble() {
-    document.querySelectorAll(".sidebar__nav-btn").forEach(btn => {
+    const buttons = document.querySelectorAll(".sidebar__nav-btn");
+    const bubble = document.querySelector(".sidebar__bubble");
+    const nav = document.querySelector(".sidebar__nav");
+
+    if (!bubble || !nav) return;
+
+    buttons.forEach(btn => {
+
+        // HOVER
+        btn.addEventListener("mouseenter", () => {
+            const btnRect = btn.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+
+            bubble.style.top = (btnRect.top - navRect.top + btnRect.height / 2 - 27) + "px";
+            bubble.style.left = "15px";
+            bubble.style.opacity = "1";
+        });
+
+        // CLICK (activo)
         btn.addEventListener("click", () => {
             document.querySelectorAll(".sidebar__nav-btn")
                 .forEach(b => b.classList.remove("sidebar__nav-btn--active"));
             btn.classList.add("sidebar__nav-btn--active");
         });
+    });
+
+    //  desaparecer
+    nav.addEventListener("mouseleave", () => {
+        bubble.style.opacity = "0";
     });
 }
 
@@ -328,14 +351,31 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
     });
 });
 
+let currentSong = 0;
+
+function updatePlayerUI() {
+  const cover = document.getElementById("nowPlayingCover");
+  const songName = document.getElementById("songName");
+  const artistName = document.getElementById("artistName");
+
+  cover.src = songs[currentSong].image;
+  songName.textContent = songs[currentSong].name;
+  artistName.textContent = songs[currentSong].artist;
+}
+
 //reproductor de musica
 function handlePlayer() {
   const audio = document.getElementById("audio");
   const playBtn = document.getElementById("playBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
 
+  // canción inicial
+  audio.src = songs[currentSong].audio;
+  updatePlayerUI();
+
+  // PLAY / PAUSE
   playBtn.addEventListener("click", () => {
-    const icon = playBtn.querySelector("svg"); 
-
     if (audio.paused) {
       audio.play();
       playBtn.innerHTML = `<i data-lucide="pause"></i>`;
@@ -343,8 +383,33 @@ function handlePlayer() {
       audio.pause();
       playBtn.innerHTML = `<i data-lucide="play"></i>`;
     }
+    lucide.createIcons();
+  });
 
-    lucide.createIcons(); 
+  // SIGUIENTE
+  nextBtn.addEventListener("click", () => {
+    currentSong = (currentSong + 1) % songs.length;
+
+    audio.src = songs[currentSong].audio;
+    audio.play();
+
+    updatePlayerUI();
+
+    playBtn.innerHTML = `<i data-lucide="pause"></i>`;
+    lucide.createIcons();
+  });
+
+  // ANTERIOR
+  prevBtn.addEventListener("click", () => {
+    currentSong = (currentSong - 1 + songs.length) % songs.length;
+
+    audio.src = songs[currentSong].audio;
+    audio.play();
+
+    updatePlayerUI();
+
+    playBtn.innerHTML = `<i data-lucide="pause"></i>`;
+    lucide.createIcons();
   });
 }
 
