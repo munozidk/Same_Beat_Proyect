@@ -57,10 +57,26 @@
             <span>Profile</span>
         </button>
 
-        <button class="sidebar__nav-btn" data-tab="create">
-            <i data-lucide="plus"></i>
-            <span>Create</span>
-        </button>
+        <div class="sidebar__dropdown" id="sidebarDropdown">
+  <button class="sidebar__nav-btn" id="sidebarCreateBtn" data-tab="create">
+        <i data-lucide="plus"></i>
+    <span>Create</span>
+  </button>
+  <div class="sidebar__dropdown-menu" id="sidebarDropdownMenu">
+    <button class="sidebar__dropdown-item" id="sidebarDropPost">
+      <i data-lucide="pencil"></i> Post
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="music"></i> Song
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="video"></i> Video
+    </button>
+    <button class="sidebar__dropdown-item">
+      <i data-lucide="image"></i> Photo
+    </button>
+  </div>
+</div>
 
     </nav>
 
