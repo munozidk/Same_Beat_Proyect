@@ -34,34 +34,37 @@
         <!-- Navegación -->
         <nav class="sidebar__nav" aria-label="Navegación principal">
 
+        <!-- BURBUJA -->
+        <div class="sidebar__bubble"></div>
 
-        <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home" aria-label="Home">
-     
-        <i data-lucide="home"></i>
-        <span>Home</span>
-    </button>
-    <button class="sidebar__nav-btn" data-tab="concerts" aria-label="Concerts">
-       
-        <i data-lucide="ticket"></i>
-        <span>Concerts</span>
-    </button>
-    <button class="sidebar__nav-btn" data-tab="music" aria-label="Music">
-        
-        <i data-lucide="headphones"></i>
-        <span>Music</span>
-    </button>
-    <button class="sidebar__nav-btn" data-tab="profile" aria-label="Profile">
-      
-        <i data-lucide="user"></i>
-        <span>Profile</span>
-    </button>
-    <button class="sidebar__nav-btn" data-tab="create" aria-label="Create">
-        <i data-lucide="plus"></i>
-        <span>Create</span>
-    </button>
+        <button class="sidebar__nav-btn sidebar__nav-btn--active" data-tab="home">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </button>
 
+        <button class="sidebar__nav-btn" data-tab="concerts">
+            <i data-lucide="ticket"></i>
+            <span>Concerts</span>
+        </button>
+
+        <button class="sidebar__nav-btn" data-tab="music">
+            <i data-lucide="headphones"></i>
+            <span>Music</span>
+        </button>
+
+        <button class="sidebar__nav-btn" data-tab="profile">
+            <i data-lucide="user"></i>
+            <span>Profile</span>
+        </button>
+
+        <button class="sidebar__nav-btn" data-tab="create">
+            <i data-lucide="plus"></i>
+            <span>Create</span>
+        </button>
 
     </nav>
+
+
          <!-- Botón crear (abajo del sidebar) -->
         <button class="sidebar__logout-btn" id="sidebarLogoutBtn" aria-label="Salir">
             <i data-lucide="log-out"></i>
@@ -165,13 +168,13 @@
         <section class="now-playing">
             <h3 class="now-playing__title">Now Playing</h3>
 
-            <div class="now-playing__cover">
-                <img src="assets/cover.jpg" alt="Canción actual" id="nowPlayingCover">
-            </div>
+        <div class="now-playing__cover">
+           <img src="assets/cover.jpg" id="nowPlayingCover">
+        </div>
 
-            <!-- INFO de la canción -->
         <div class="now-playing__info">
-        <p class="now-playing__song-name">Romeo x Prince Royce </p>
+           <h4 id="songName">Nombre canción</h4>
+           <p id="artistName">Artista</p>
         </div>
 
             <!-- Barra de progreso -->
@@ -185,15 +188,19 @@
 
             <!-- Controles del reproductor -->
             <div class="now-playing__controls">
-                <button class="player-btn" aria-label="Anterior">
-                    <i data-lucide="skip-back"></i>
-                </button>
-                <button class="player-btn player-btn--play" id="playBtn" aria-label="Play/Pausa">
-                    <i data-lucide="play"></i>
-                </button>
-                <button class="player-btn" aria-label="Siguiente">
-                    <i data-lucide="skip-forward"></i>
-                </button>
+
+              <button class="player-btn" id="prevBtn" aria-label="Anterior">
+              <i data-lucide="skip-back"></i>
+            </button>
+
+            <button class="player-btn player-btn--play" id="playBtn" aria-label="Play/Pausa">
+               <i data-lucide="play"></i>
+            </button>
+
+              <button class="player-btn" id="nextBtn" aria-label="Siguiente">
+               <i data-lucide="skip-forward"></i>
+            </button>
+
             </div>
 
         </section>
@@ -269,9 +276,7 @@
             Publicar
         </button>
 
-        <audio id="audio">
-        <source src="assets/dardos.mp3" type="audio/mpeg">
-        </audio>
+        <audio id="audio"></audio>
 
     </div>
 </div>
