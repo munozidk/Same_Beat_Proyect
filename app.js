@@ -38,7 +38,7 @@ function renderPost(post) {
             <i data-lucide="message-circle"></i>
           </button>
           <button class="share-btn" data-id="${post.id}">
-            <i data-lucide="repeat-2"></i>
+            <i data-lucide="repeat"></i>
             <span class="share-count">${post.reposts || 0}</span>
           </button>
         </div>
@@ -65,6 +65,7 @@ function renderAllPosts(posts) {
     container.innerHTML += renderPost(post);
   });
 }
+
 
 function renderChats(chats) {
   const container = document.getElementById("chatList");
